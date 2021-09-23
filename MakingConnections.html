@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Making Connections</title>
+    <link rel="stylesheet" href="MakingConnections.css">
+</head>
+<body>
+    <div class="container">
+        <div id="header">
+            <box id="box1">
+                <h1>Profile</h1>
+                <strong>Home</strong>
+                <strong>My Profile</strong>
+                <strong>Find Connections</strong>
+            </box>
+            <div>
+                    <button id="signout">Sign Out</button>
+            </div>
+    </div>
+    <div class="container2">
+        <div id="maintop">
+            <img src="Images/jane-m.jpg">
+        </div>
+        <div id="mainbottom">
+            <h1 id="changeName">Jane Doe</h1>
+            <h3 id="seattle">Seattle</h3>
+            <h3>Developer | Engineer | Problem Solver Master of shadows and the Internet!</h3>
+            <img src="Images/map-marker.png" alt="mapmarker" id="mapmarker">
+            <img src="Images/gear.png" alt="gear" id="gear">
+            <a href="url" onclick="changeName();" target="_blank">edit profile</a>
+        </div>
+        <div class="footer">
+            <div id="footertop">
+                <h3>Education</h3>
+                
+            </div>
+            <div id="footerbottom">
+                <h2>Coding Dojo - Full Stack Bootcamp</h2>
+                <h3>Dec 2019 - Mar 2020</h3>
+                <h3b>Triple black belt in Python, MERN and C#...</h3B>
+            </div>
+        </div>
+    </div>
+    <div class="container3">
+        <div id="sidetop">
+            <img src="Images/todd-s.jpg" alt="todd" id="todd">
+            <img src="Images/phil-s.jpg" alt="todd" id="phil">
+            <img src="Images/accept-circle.png" alt="check" id="check1" onclick="removeTodd();addConnections()">
+            <img src="Images/accept-circle.png" alt="check2" id="check2" onclick="removePhil();addConnections()">
+            <img src="Images/close-circle.png" alt="deny1" id="deny1" onclick="removeTodd();yourConnections()">
+            <img src="Images/close-circle.png" alt="deny2" id="deny2" onclick="removePhil();yourConnections()">
+            <h3 id="circle">  2</h3>
+            <h3 id="h3b">Connection Requests</h3>
+            <h3 id="todd2">Todd E</h3>
+            <h3 id="phil2">Phil K</h3>
+        </div>
+    </div>
+    <div class="container4">
+        <div id="sidebottom">
+            <h3 id=circle2>500</h3>
+            <h3 id="h3c">Your Connections</h3>
+            <img src="Images/adrien-s.jpg" alt="adrien" id="adrien">
+            <img src="Images/anne-s.jpg" alt="anne" id="anne">
+            <img src="Images/alayne-s.jpg" alt="alayne" id="alayne">
+            <img src="Images/arry-s.jpg" alt="arry" id="arry">
+            <h3 id="adrien2">Adrien D</h3>
+            <h3 id="anne2">Anne J</h3>
+            <h3 id="alayne2">Alayne T</h3>
+            <h3 id="arry2">Arry Y</h3>
+        </div>
+        <div class="viewmore">
+            <a href="viewmore">View More</a>
+        </div>
+        <script src="MakingConnections.js"></script>
+</body>
+</html>

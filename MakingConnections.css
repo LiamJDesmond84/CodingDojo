@@ -1,0 +1,378 @@
+
+
+.container {
+    background-color: white;
+    height: 687px;
+    width: 1190px;
+    position: relative;
+    border: 1px solid black
+
+}
+
+#header {
+    background-color: black;
+    height: 100px;
+    width: 1190px;
+    position: absolute;
+}
+#box1 {
+    color: white;
+}
+#signout {
+    position: absolute;
+    left: 780px;
+    top: 32px;
+    font-family: cursive;
+    background-color: rgba(0, 255, 255, 0.774);
+    color: white;
+    font-size: 17px;
+    height: 30px;
+    width: 180px;
+    box-shadow: 10px 5px 5px black;
+}
+h1 {
+    font-family: cursive;
+    position: absolute;
+    left: 200px;
+
+}
+#box1 strong {
+    font-family: cursive;
+    position: relative;
+    left: 320px;
+    top: 32px;
+    margin: 10px;
+}
+.container2 {
+    position: absolute;
+    left: 200px;
+    top: 0150px;
+    height: 345px;
+    width: 450px;
+    border: 3px solid lightgray;
+}
+
+#maintop {
+    background-color: rgba(0, 255, 255, 0.774);
+    height: 100px;
+    width: 450px;
+    outline-style: solid;
+    outline-color: rgba(0, 255, 255, 0.774);
+}
+#maintop img {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    left: 30px;
+    top: 40px;
+    border-radius: 50%;
+}
+#mainbottom h1 {
+    font-family: cursive;
+    position: absolute;
+    top: 138px;
+    left: 30px;
+}
+#mainbottom #seattle {
+    top: 185px;
+    left: 65px;
+    font-size: 18px;
+}
+#mainbottom h3 {
+    font-family: cursive;
+    font-size: 15px;
+    position: absolute;
+    top: 222px;
+    left: 30px;
+    width: 320px
+}
+#mainbottom a{
+    font-family: cursive;
+    position: absolute;
+    top: 300px;
+    left: 60px;
+    font-weight: bold;
+}
+
+#mainbottom #mapmarker {
+    position: absolute;
+    top: 206px;
+    left: 35px;
+    height: 22px;
+    width: 14px;
+}
+#mainbottom #gear {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 300px;
+    left: 30px;
+}
+
+.footer {
+    position: absolute;
+    outline: 3px solid;
+    outline-color: lightgray;
+    height: 150px;
+    width: 450px;
+    top: 380px;
+}
+#footertop {
+    position: absolute;
+    top: 1px;
+    background-color: rgba(0, 0, 0, 0.801);
+    height: 50px;
+    width: 450px;
+    outline-style: solid;
+    outline-color: rgba(0, 0, 0, 0.801);
+}
+#footertop h3 {
+    position: absolute;
+    color: white;  
+    left: 30px;
+    top: -4px;
+    font-family: cursive;
+    font-size: 17px;
+}
+#footerbottom h2 {
+    font-family: cursive;
+    font-size: 20px;
+    position: absolute;
+    color: black;
+    top: 45px;
+    left: 30px;
+}
+#footerbottom h3{
+    font-family: cursive;
+    position: absolute;
+    color: gray;
+    font-size: 16px;
+    top: 75px;
+    left: 30px;
+}
+#footerbottom h3b {
+    font-family: cursive;
+    position: absolute;
+    color: black;
+    font-size: 16px;
+    top: 118px;
+    left: 30px;
+    font-weight: bold;
+}
+
+.container3 {
+    position: absolute;
+    top: 150px;
+    left: 680px;
+    height: 200px;
+    width: 280px;
+    border: 3px solid lightgray
+}
+#sidetop {
+    position: absolute;
+    height: 55px;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.801);
+    outline: 3px solid;
+    outline-color: rgba(0, 0, 0, 0.801);
+}
+#sidetop #todd {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 80px;
+    left: 20px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+#sidetop #phil {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 140px;
+    left: 20px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+#sidetop #circle {
+    position: absolute;
+    color: black;
+    text-align: center;
+    padding-top: 3px;
+    left: 20px;
+    top: -6px;
+    height: 25px;
+    width: 30px;
+    background-color: lightgray;
+    border-radius: 50%;
+
+}
+#sidetop #h3b {
+    position: absolute;
+    color: white;
+    left: 70px;
+    border-color: rgba(0, 0, 0, 0.801);
+}
+.container4 {
+    position: absolute;
+    height: 295px;
+    width: 280px;
+    top: 385px;
+    left: 680px;
+    border: 3px solid lightgray
+}
+#sidebottom {
+    position: absolute;
+    top: 1px;
+    height: 55px;
+    width: 280px;
+    border-color: lightgray;
+    background-color: rgba(0, 0, 0, 0.801);
+    outline: 3px solid;
+    outline-color: rgba(0, 0, 0, 0.801);
+    
+}
+
+#sidebottom #circle2 {
+    position: absolute;
+    color: black;
+    text-align: center;
+    padding-top: 3px;
+    left: 20px;
+    top: -5px;
+    height: 23px;
+    width: 50px;
+    background-color: lightgray;
+    border-radius: 90%;
+}
+#sidebottom #h3c {
+    position: absolute;
+    color: white;
+    left: 90px;
+    border-color: rgba(0, 0, 0, 0.801);
+}
+
+#sidebottom #adrien {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 67px;
+    left: 20px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+#sidebottom #anne {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 117px;
+    left: 20px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+#sidebottom #alayne {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 167px;
+    left: 20px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+#sidebottom #arry {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 216px;
+    left: 20px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+#adrien2 {
+    font-family: cursive;
+    position: absolute;
+    top: 60px;
+    left: 70px;
+}
+#anne2 {
+    font-family: cursive;
+    position: absolute;
+    top: 110px;
+    left: 70px;
+}
+#alayne2 {
+    font-family: cursive;
+    position: absolute;
+    top: 160px;
+    left: 70px;
+}
+#arry2 {
+    font-family: cursive;
+    position: absolute;
+    top: 210px;
+    left: 70px;
+}
+
+#todd2 {
+    font-family: cursive;
+    position: absolute;
+    top: 75px;
+    left: 70px;
+}
+
+#phil2 {
+    font-family: cursive;
+    position: absolute;
+    top: 135px;
+    left: 70px;
+}
+
+#check1 {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 80px;
+    left: 180px;
+}
+#check2{
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 140px;
+    left: 180px;
+}
+#deny1 {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 80px;
+    left: 233px;
+}
+#deny2 {
+    position: absolute;
+    height: 40px;
+    width: 40px;
+    top: 140px;
+    left: 233px;
+}
+.viewmore {
+    position: absolute;
+    height: 32px;
+    width: 280px;
+    border: 3px solid lightgray;
+    top: 261px;
+    left: -3px;
+}
+a {
+    font-family: cursive;
+    position: absolute;
+    left: 20px;
+    top: 5px;
+}
