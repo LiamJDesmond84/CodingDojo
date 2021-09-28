@@ -1,7 +1,8 @@
 
 
 class Animal:
-    def __init__(self, position):
+    def __init__(self, position, name):
+        self.name = name
         self.position = position
         self.animals = []
         self.Zooname = "San Diego Zoo"
@@ -12,7 +13,9 @@ class Animal:
     def add_bear(self, animal):
         self.animals.append(animal)
     def print_all_info(self):
-        # print(self.animals)
+        print(wrangler.animals[0].name)
+        print(wrangler.animals[1].name)
+        print(wrangler.animals[2].name)
         for animal in self.animals:
             print("-"*30, animal.name, "-"*30)
             print(animal.health)
@@ -33,7 +36,10 @@ class Lion(Animal):
     def play(self):
         self.happiness += 10
         self.health += 10
+        print("-"*60)
+        print(self.name + " is Playing!")
         print(self.noise)
+        print("-"*60)
 
 class Tiger(Animal):
     def __init__(self, name, age):
@@ -49,7 +55,10 @@ class Tiger(Animal):
     def play(self):
         self.happiness += 10
         self.health += 10
+        print("-"*60)
+        print(self.name + " is Playing!")
         print(self.noise)
+        print("-"*60)
 
 class Bear(Animal):
     def __init__(self, name, age):
@@ -65,9 +74,12 @@ class Bear(Animal):
     def play(self):
         self.happiness += 10
         self.health += 10
+        print("-"*60)
+        print(self.name + " is Playing!")
         print(self.noise)
+        print("-"*60)
 
-wrangler = Animal("Wrangler")
+wrangler = Animal("Wrangler", "Liam")
 lion1 = Lion("Bob", 12)
 tiger1 = Tiger("Sam", 8)
 bear1 = Bear("Billy", 18)
@@ -79,5 +91,4 @@ wrangler.add_bear(bear1)
 lion1.feed()
 bear1.exercise()
 tiger1.play()
-# print(wrangler.animals)
 wrangler.print_all_info()
