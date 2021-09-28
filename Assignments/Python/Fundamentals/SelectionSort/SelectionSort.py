@@ -1,13 +1,13 @@
 
 
-arr = [6, 3, 5, 2, 4]
+arr = [6, 3, 5, 2, 4, 0]
 
 def selectionSort(arr):
-    for i in range(len(arr)-1):
-            min_index = i
-            for j in range(i+1, len(arr)-1):
-                if arr[j] < arr[min_index]:
-                    min_index = j
-            arr[i], arr[min_index] = arr[min_index], arr[i]
+    for i in range(len(arr)):
+            min = i
+            for j in range(i+1, len(arr)):
+                if arr[j] < arr[min]:
+                    min = j
+            arr[i], arr[min] = arr[min], arr[i]
 selectionSort(arr)
 print(arr)
