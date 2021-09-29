@@ -1,3 +1,12 @@
+
+
+#From the checklist#
+
+# - Make an instance of a Ninja and assign them an instance of a pet to the pet attribute - #
+
+#1 - I have no idea what that means.
+#2 - If it wasn't worded incorrectly, then the platform forgot an entire lesson on how to do this.  I've tried Googling different class examples with that kind of wording but nothing.  Even tutorials I've seen haven't mentioned anything like this.  So I'm assuming it wasn't worded very well.
+
 class Pet():
     def __init__(self, name, noise, type, tricks):
         self.name = name
