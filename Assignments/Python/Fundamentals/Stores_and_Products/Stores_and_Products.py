@@ -1,3 +1,8 @@
+#From the instructions-------
+# set_clearance(self, category, percent_discount) - updates all the products matching the given category by reducing the price by the percent_discount given (use the method you wrote in the Product class!)
+# How is this possible?
+
+
 # STILL CONFUSED WITH SUBCLASSES?
 
 class Store:
@@ -12,7 +17,7 @@ class Store:
         del self.productList[id]
     def inflation(self,percent_increase):
         cat.price += percent_increase
-    def set_clearance(self, price, percent_discount):
+    def set_clearance(self, category, percent_discount):
         cat.price -= percent_discount
 
 class Product(Store):
