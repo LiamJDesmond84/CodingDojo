@@ -11,9 +11,9 @@ def index():
 
 
 
-@app.route("/checkers/<int:x>/<int:y>")
-def checker(x, y):
-    return render_template("checker.html", x=x, y=y)
+@app.route("/checkers/<int:x>/<int:y>/<string:color>")
+def checker(x, y, color):
+    return render_template("checker.html", x=x, y=y, color=color)
 
 
 
