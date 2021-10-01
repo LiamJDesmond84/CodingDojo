@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style type="text/css">
+        .form {
+            display: flex;
+            justify-content: center;
+        }
+        form {
+            margin: 15px;
+        }
+        .container { 
+            display: flex;
+            justify-content: center;
+        }
+        h1 {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <form action="/views" method="post">
+            <input type="submit" value="Click">
+        </form>
+        <form action="/reset" method="post">
+            <input type="submit" value="Reset">
+        </form>
+        <form action="/add2" method="post">
+            <input type="submit" value="Add 2 Views">
+        </form>
+    </div>
+    <div class="container">
+        <h1>Views: </h1>
+        <h1>{{ session["counter"] }}</h1>
+    </div>
+</body>
+</html>
