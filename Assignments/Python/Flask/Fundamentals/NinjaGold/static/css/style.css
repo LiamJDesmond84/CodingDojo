@@ -1,0 +1,63 @@
+body {
+    margin: 0 auto;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: flex-start;
+    margin-left: 55px;
+    align-items: center;
+
+}
+#gold {
+    border: 1px solid black;
+    height: 30px;
+    width: 200px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: row;
+
+}
+.boxes {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.box {
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    background-color: darkgreen;
+}
+form input {
+    margin-top: 20px;
+}
+.act {
+    margin-left: 55px;
+}
+#log {
+    border: 1px solid black;
+    height: 100px;
+    width: 975px;
+    
+}
+#add {
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+#log1 {
+    color: green;
+    margin: 0px 0px 0px 10px;
+}
+#log2 {
+    color: red;
+    margin: 0px 0px 0px 10px;
+}

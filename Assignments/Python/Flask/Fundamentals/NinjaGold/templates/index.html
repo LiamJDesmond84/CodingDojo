@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Ninja Gold</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .top {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: flex-start;
+            margin-left: 55px;
+            align-items: center;
+
+        }
+        #gold {
+            border: 1px solid black;
+            height: 30px;
+            width: 200px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            flex-direction: row;
+
+        }
+        .boxes {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        .box {
+            border: 1px solid black;
+            height: 200px;
+            width: 200px;
+            text-align: center;
+            background-color: darkgreen;
+        }
+        form input {
+            margin-top: 20px;
+        }
+        .act {
+            margin-left: 55px;
+        }
+        #log {
+            border: 1px solid black;
+            height: 100px;
+            width: 975px;
+            
+        }
+        #add {
+            margin-bottom: 20px;
+            margin-left: 10px;
+        }
+        #log1 {
+            color: green;
+            margin: 0px 0px 0px 10px;
+        }
+        #log2 {
+            color: red;
+            margin: 0px 0px 0px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="top">
+        <h3>Your Gold:</h3>
+        <div id="gold" name="gold">
+            <h3 id="add">{{ session["gold"] }}</h3>
+        </div>
+        </div>
+
+        <div class="boxes">
+            <div class="box">
+                <h2>Farm</h2>
+                <h3>(earns 10-20 golds)</h3>
+                <form action="/process" method="post">
+                    <input type="hidden" name="building" value="farm"/>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="box">
+                <h2>Cave</h2>
+                <h3>(earns 5-10 golds)</h3>
+                <form action="/process" method="post">
+                    <input type="hidden" name="building" value="cave"/>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="box">
+                <h2>House</h2>
+                <h3>(earns 2-5 golds)</h3>
+                <form action="/process" method="post">
+                    <input type="hidden" name="building" value="house"/>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+            <div class="box">
+                <h2>Casino</h2>
+                <h3>(earns/takes 0-50 golds)</h3>
+                <form action="/process" method="post">
+                    <input type="hidden" name="building" value="casino"/>
+                    <input type="submit" value="Find Gold!">
+                </form>
+            </div>
+        </div>
+        <div class="act">
+        <h3>Activities:</h3>
+        <div id="log" name="log">
+            {% for x in session["message"]: %}
+            <h3 id="log1">{{ x }} </h3>
+            {% endfor %}
+            {% for x in session["message2"]: %}
+            <h3 id="log2">{{ x }} </h3>
+            {% endfor %}
+        </div>
+        <form action="/process" method="post">
+            <input type="hidden" name="building" value="reset"/>
+            <input type="submit" value="Reset">
+        </form>
+        </div>
+    </div>
+</body>
+</html>
