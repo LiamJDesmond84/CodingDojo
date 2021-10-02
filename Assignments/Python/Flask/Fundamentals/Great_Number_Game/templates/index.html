@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+        h3 {
+            display: flex;
+            justify-content: center;
+        }
+        form {
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+        #box {
+            height: 200px;
+            width: 200px;
+            font-size: 40px;
+            background-color: red;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 200px;
+            color: white
+        }
+        #reset {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Great Number Game!</h1>
+    {#{% if (session["answer"] > session["guess"] or session["answer"] < session["guess"]) %}#}
+    <div class="container">
+        <div id="box">{{ session["message"] }}</div>
+    </div>
+    {#{% endif %}#}
+    <h3>I am thinking of a number between 1 and 100</h3>
+    <form action="/guess" method="post">
+        <input type="text" name="guess">
+        <input type="submit" value="Submit">
+    </form>
+    <form action="/reset" method="post" id="reset">
+        <input type="submit" value="Reset">
+    </form>
+
+    
+</body>
+</html>
