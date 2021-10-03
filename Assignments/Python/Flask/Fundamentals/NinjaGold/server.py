@@ -7,7 +7,8 @@ app.secret_key = 'key1'
 
 @app.route('/')
 def index():
-    
+    if "gold" not in session:
+        session["gold"] = 0
     return render_template("index.html")
 
 
@@ -16,6 +17,7 @@ def process():
     session["message"] = []
     session["message2"] = []
     if request.form['building'] == "farm":
+        
         session["add"] = random.randint(10, 20)
         session["gold"] += session["add"]
         add = session["add"]
@@ -39,9 +41,7 @@ def process():
         elif add < 0:
             session["message2"].append(f"You lost {add} gold from the casino!")
     elif request.form['building'] == "reset":
-        session["gold"] = 0
-        session["message"]= ""
-        session["message2"]= ""
+        session.clear()
     return redirect("/")
 
 
