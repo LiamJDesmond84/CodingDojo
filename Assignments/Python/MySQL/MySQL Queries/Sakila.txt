@@ -1,0 +1,15 @@
+SELECT customer.first_name, customer.last_name, customer.email, address.address, city.city_id FROM city JOIN address ON city.city_id = address.city_id JOIN customer ON address.address_id = customer.address_id WHERE city.city_id = 312;
+
+SELECT film.title, film.description, film.release_year, film.rating, film.special_features, category.name FROM film JOIN film_category ON film.film_id = film_category.film_id JOIN category ON film_category.category_id = category.category_id WHERE category.name = "Comedy";
+
+SELECT film_actor.actor_id, actor.first_name, actor.last_name, film.title, film.description, film.release_year, film.rating, film.special_features FROM film JOIN film_actor ON film.film_id = film_actor.film_id JOIN actor ON film_actor.actor_id = actor.actor_id WHERE actor.actor_id = 5;
+
+SELECT customer.first_name, customer.last_name, customer.email, address.address, store.store_id FROM store JOIN customer ON store.store_id = customer.store_id JOIN address ON address.address_id = customer.address_id JOIN city ON city.city_id = address.city_id WHERE store.store_id = 1 AND city.city_id in (1,42,312,459);
+
+SELECT film.rating, film.special_features, film.title, film.description, film.release_year, actor.actor_id FROM film JOIN film_actor ON film.film_id = film_actor.film_id JOIN actor ON film_actor.actor_id = actor.actor_id WHERE film.rating = "G" AND film.special_features LIKE "%behind the scenes%" AND actor.actor_id = 15;
+
+SELECT film.film_id, film.title, actor.actor_id, actor.first_name, actor.last_name FROM film JOIN film_actor ON film.film_id = film_actor.film_id JOIN actor ON film_actor.actor_id = actor.actor_id WHERE film.film_id = 369;
+
+SELECT film.title, film.description, film.release_year, film.rating, film.special_features, category.name FROM film JOIN film_category ON film.film_id = film_category.film_id JOIN category ON film_category.category_id = category.category_id JOIN inventory ON film.film_id = inventory.film_id JOIN rental ON inventory.inventory_id = rental.inventory_id WHERE category.name = "Drama";
+
+SELECT film.title, film.description, film.release_year, film.rating, film.special_features, actor.first_name, actor.last_name, category.name FROM film JOIN film_category ON film.film_id = film_category.film_id JOIN category ON film_category.category_id = category.category_id JOIN film_actor ON film.film_id = film_actor.film_id JOIN actor ON film_actor.actor_id = actor.actor_id WHERE category.name = "Action" AND actor.first_name = "Sandra" AND actor.last_name = "Kilmer";
