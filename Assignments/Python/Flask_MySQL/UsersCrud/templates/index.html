@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User CRUD</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            {% for x in all_users %}
+            <tr>
+                <td>{{ x.id }}</td>
+                <td>{{ x.first_name }}</td>
+                <td>{{ x.last_name }}</td>
+                <td>{{ x.email }}</td>
+                
+                <td><a href="/users/{{ x.id }}" id="id">Show</a>|<a href="/users/{{ x.id }}/edit" id="id">Edit</a>|<a href="/users/{{ x.id }}/destroy" id="id">Delete</a></td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/new">Add New Friend</a>
+</body>
+</html>
