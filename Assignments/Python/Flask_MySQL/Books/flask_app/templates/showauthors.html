@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Author Information</title>
+</head>
+<body>
+    <a href="/addauthor" class="btn btn-info" >Home</a>
+
+    <div class="d-flex justify-content-around flex-wrap p-5">
+            <div class="card col-3 bg-dark text-light">
+                <div class="card-body">
+                    
+                    <h1 class="card-title text-primary">{{ authors.name }}</h1>
+                    <a href="/deleteA/{{ author['id'] }}" id="id">Delete Author</a>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; padding-left: 90px;">
+            <h2>Favorite Books:</h2>
+                {%  for x in authors.books %}
+                    
+                <p>{{ x.title }}</p>
+                    
+                {% endfor %}
+            </div>
+
+            <form action="/favorite/{{authors.id}}" method="post" class="p-3 col-4 mx-auto my-5 bg-dark text-light">
+                <h2 class="text-center text-primary">Add Book to Author Favorites:</h2>
+                <select name="book_id">
+                    {% for book in all_books %}
+                    <option value={{book.id}}>{{book.title}}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Add Book" class="btn btn-primary btn-outline-dark">
+            </form>
+    </div>
+
+</body>
+</html>

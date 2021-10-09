@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Edit Book Information</title>
+</head>
+<body>
+    <form action="/update/{{book['id']}}" method="post" class="p-3 col-4 mx-auto my-5 bg-dark text-light">
+        <h2 class="text-center text-primary">Edit {{book['title']}}:</h2>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Flash AHHHHHHH!!!!</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="title">Book Title:</label>
+            <input type="text" name="title" id="title" class="form-control" value="{{book['title']}}">
+        </div>
+        <div class="form-group">
+            <label for="num_of_pages">Number of Pages:</label>
+            <input type="text" name="num_of_pages" id="num_of_pages" class="form-control" value="{{book['num_of_pages']}}">
+        </div>
+
+        <input type="submit" value="Update Book" class="btn btn-primary btn-outline-dark">
+    </form>
+</body>
+</html>
