@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Welcome!</title>
+    <style>
+        body {
+            margin: 15px;
+        }
+        div {
+            margin: 15px;
+        }
+        #left {
+            width: 500px;
+            height: 100%;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div style="display: flex; justify-content: center; flex-direction: row; align-items: center">
+    <a href="/logout" class="btn btn-success btn-primary btn-lg" tabindex="-1" role="button">Logout</a>
+    <a href="/" class="btn btn-secondary btn-lg" tabindex="-1" role="button">Home</a>
+</div>
+<div style="display: flex; justify-content: space-evenly; flex-direction: row; align-items: center">
+        
+    <div style="display: flex; flex-direction: row;">
+        <h2>Messages for {{ user.first_name }}:</h2>
+        <div id="left" style="display: flex; flex-direction: column">
+            
+            <ul>
+
+                {% for x in all_messages.users %}
+
+                    <h3>{{ x.first_name }} sent:</h3>
+                    <p>At: {{ x['created_at'].strftime("%B %d, %Y  at %H:%M:%S") }}</p>
+                    <p><b>-----{{ x.message }}</b></p>
+                    
+                    
+
+                {% endfor %}
+            </ul>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+            <h2>Send Messages</h2>
+            
+            <form action="/sendmessageL/{{ user.id }}" method="post">
+                <div class="input-group mb-3">
+                    <label for="message">Liam</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="message">
+                    <input type="submit" value="Send Message">
+                </div>
+        
+            </form>
+            <form action="/sendmessageK/{{ user.id }}" method="post">
+                <div class="input-group mb-3">
+                    <label for="message">Karl</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="message">
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+            <form action="/sendmessageN/{{ user.id }}" method="post">
+                <div class="input-group mb-3">
+                    <label for="message">Norm</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="message">
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+            <form action="/sendmessageS/{{ user.id }}" method="post">
+                <div class="input-group mb-3">
+                    <label for="message">Sour-Shoes</label>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" name="message">
+                    <input type="submit" value="Send Message">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
