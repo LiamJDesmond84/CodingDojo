@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <title>Recipes</title>
+    <style>
+        body {
+            background-color: darkgray;
+        }
+        table, th, td {
+            border: 1px solid white;
+            border-collapse: collapse
+        }
+    </style>
+</head>
+<body style="width: 100%;">
+
+    <div class="d-flex justify-content-around flex-wrap p-5" style="display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center;">
+        <h1>These are the Recipes</h1>
+        <div class="card col-3 bg-dark text-light">
+            <div class="card-body">
+
+            <h1>Welcome {{ user.first_name }}</h1>
+            <a href="/logout">Logout</a>
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Name</th>
+                        <th>Under 30 Minutes?</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    {% for x in all_recipes %}
+                    <tr>
+                        
+                        <td>{{ x.name }}</td>
+                        
+                        <td>{{ x.radio_state }}</td>
+
+                        
+                        <td><a href="/recipes/show/{{ x.id }}" id="id">Show</a>|<a href="/recipes/edit/{{ x.id }}" id="id">Edit</a>|<a href="/destroy/{{ x.id }}" id="id">Delete</a></td>
+                        
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+            <a href="/recipes/new/{{user.id}}">Create Recipe</a>
+        </div>
+        
+    </div>
+</body>
+</html>
