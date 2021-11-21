@@ -5,7 +5,7 @@ const [ ,otherRandomCar ] = cars
 console.log(randomCar)
 console.log(otherRandomCar)
 
-//1 "Tesla", "Mercedes"
+//1 - "Tesla", "Mercedes"
 
 
 const employee = {
@@ -18,7 +18,7 @@ const { name: otherName } = employee;
 console.log(name);
 console.log(otherName);
 
-//2 error - name is not defined
+//2 - error - name is not defined
 
 const person = {
     name: 'Phil Smith',
@@ -31,7 +31,7 @@ const { password: hashedPassword } = person;
 console.log(password);
 console.log(hashedPassword);
 
-//3 error: password is not a listed attribute of person.
+//3 - 12345, error: password is not a listed attribute of person.
 
 
 const numbers = [8, 2, 3, 5, 6, 1, 67, 12, 2];
@@ -58,4 +58,4 @@ console.log(secondKey);
 console.log(secondKey[0]);
 console.log(willThisWork);
 
-//5 "value", [1, 5, 1, 8, 3, 3], "5", Error - cannot find "secondKey"
+//5 "value", [1, 5, 1, 8, 3, 3], "1", "5", Error - cannot find "secondKey"
