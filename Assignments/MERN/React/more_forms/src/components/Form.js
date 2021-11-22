@@ -12,6 +12,7 @@ const Form = (props) => {
     const [passwordError, setPasswordError] = useState("");
     const [confPassError, setConfPassError] = useState("");
     const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false);
+    const [user, setUser] = useState([])
 
     const handleFName = (e) => {
         setFirstName(e.target.value);
@@ -75,7 +76,7 @@ const Form = (props) => {
         setPassword("");
         setConfPassword("");
         setHasBeenSubmitted(true);
-        
+        setUser([...user, newUser]);
 
     };
 
@@ -84,6 +85,16 @@ const Form = (props) => {
             { hasBeenSubmitted ?
             <div>
             <h3>Thank you for submitting the form!</h3>
+            {user.map((x,y) => {
+                    return (
+                    <div>
+                    <h3>First Name: {x.firstName}</h3>
+                    <h3>Last Name: {x.lastName}</h3>
+                    <h3>Email: {x.email}</h3>
+                    </div>
+                    ) 
+                    }
+                    )}
             </div>: 
             <div>
                 <h3>Welcome, please submit the form.</h3> 
@@ -162,14 +173,17 @@ const Form = (props) => {
                     <input type="submit" value="Create User" />
                 }
                 </form>
-            </div>
-            }
-            <div>
                 <h2>First Name: {firstName}</h2>
                 <h2>Last Name: {lastName}</h2>
                 <h2>Email: {email}</h2>
                 <h2>Password: {password}</h2>
                 <h2>Confirm: {confPassword}</h2>
+            </div>
+            }
+            <div>
+
+
+                
             </div>
         </div>
     );
