@@ -4,15 +4,9 @@ const PokemonAPI = () => {
     const [pokemon, setPokemon] = useState([])
 
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=200")// /pokemon is the model, models are plural
-        .then(res => {
-            res.json()
-            .then(res => {
-                setPokemon(res.results)
-            })
-            .catch(err => {console.log("err", err)
-            })
-            })
+        fetch("https://pokeapi.co/api/v2/pokemon?limit=807&offset=200")
+        .then(res => res.json())
+        .then(res => {setPokemon(res.results)})
         .catch(err => {console.log("err", err)})
     }, [])
 
