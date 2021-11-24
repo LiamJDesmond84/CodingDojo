@@ -1,0 +1,16 @@
+.main {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: red;
+    width: 493px;
+    height: 400px;
+    margin: 10px;
+    position: absolute;
+    left: 360px;
+
+}
+
+

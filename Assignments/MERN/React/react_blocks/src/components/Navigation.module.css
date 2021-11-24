@@ -1,0 +1,13 @@
+
+
+.nav {
+    border: 2px solid black;
+    height: 300px;
+    width: 145px;
+    background-color: blue;
+    position: absolute;
+    margin: 10px;
+    left: 205px;
+
+}
+
