@@ -61,8 +61,8 @@ const createCompany = () => {
 const newFakeCompany = createCompany();
 console.log(newFakeCompany);
 
-const newFakeUserandCompany = [createCompany(), createUser()]
-console.log(newFakeUserandCompany);
+// const newFakeUserandCompany = [createCompany(), createUser()]
+// console.log(newFakeUserandCompany);
 
 app.use( express.json() );
 app.use( express.urlencoded({ extended: true }) );
@@ -78,7 +78,19 @@ app.get("/api/companies/new", (req, res) => {
 });
 //? http://localhost:8000/api/user/company
 app.get("/api/user/company", (req, res) => {
-    res.json( newFakeUserandCompany  );
+    let newUser = createUser();
+    let newCompany = createCompany();
+
+    console.log("new user:");
+    console.log(newUser);
+
+    console.log("new company:");
+    console.log(newCompany);
+
+    //TODO you can combine a bunch of data into a new object of your own creation
+    //TODO    to be returned in json to the client that requested this data
+    response.json({ user: newUser, company: newCompany });
+    // res.json( newFakeUserandCompany  );
 });
 
 

@@ -12,10 +12,12 @@ const Navbar = (props) => {
         e.preventDefault();
         // props.handleSearchID(searchID)
         props.searchResults(searchID, everything);
-        
-        
         navigate(`/${genre}`)
     }
+
+    useEffect(() => {
+        props.handleSearchID(searchID)
+    },[])
 
     useEffect(() => {
         axios.get(`https://swapi.dev/api/${genre}`)
@@ -23,6 +25,8 @@ const Navbar = (props) => {
             .catch(err => console.log(err))
 
     }, [genre]);
+
+
 
     const genreChange = (e) => {
         setGenre(e.target.value)

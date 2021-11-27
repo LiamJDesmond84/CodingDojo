@@ -11,10 +11,10 @@ import React, { useState } from 'react'
 
 function App() {
   const [results, setResults] = useState([])
-  const [sID, setSID] = useState()
+  const [sID, setSID] = useState(0)
 
   const handleSearchID = (id) => {
-
+    setSID(id);
   }
 
   const searchResults = (id, query) => {
