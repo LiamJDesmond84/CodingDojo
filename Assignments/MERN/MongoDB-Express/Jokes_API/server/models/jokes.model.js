@@ -15,7 +15,9 @@ const JokeSchema = new mongoose.Schema({
     updatedAt: {
         type: Date, default: Date.now()
     }
-});
+},
+{timestamps: true}
+);
 
 const Joke = mongoose.model('Joke', JokeSchema);
 
