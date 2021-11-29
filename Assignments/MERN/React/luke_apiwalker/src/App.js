@@ -6,12 +6,13 @@ import People from './components/People';
 import Planets from './components/Planets';
 import Species from './components/Species';
 import React, { useState } from 'react'
+import ObiWan from './components/ObiWan';
 
 
 
 function App() {
   const [results, setResults] = useState([])
-  const [sID, setSID] = useState(0)
+  const [sID, setSID] = useState(1)
 
   const handleSearchID = (id) => {
     setSID(id);
@@ -33,6 +34,7 @@ function App() {
         <People path="/people" results={results} sID={sID} />
         <Planets path="/planets" results={results} sID={sID} />
         <Species path="/species" results={results} sID={sID} />
+        <ObiWan path="/obiwan" />
       </Router>
     </div>
   );

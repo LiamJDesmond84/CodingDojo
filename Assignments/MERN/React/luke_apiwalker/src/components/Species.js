@@ -6,19 +6,16 @@ const Species = (props) => {
             <h2>Species</h2>
             <ul>
                 {props.results.map((x,i) => {
-                    return props.sID <= 9 ?
+                    return (
                         <div key={i}>
-                            <h1>{x[props.sID].name}</h1>
-                            <li>Classification: {x[props.sID].classification}</li>
-                            <li>Designation: {x[props.sID].designation}</li>
-                            <li>Language: {x[props.sID].language}</li>
-                            <li>Skin Colors: {x[props.sID].skin_colors}</li>
-                        </div>:
-                        <div>
-                            <img style={{width: "500px"}} src="https://memegenerator.net/img/instances/47132114/these-arent-the-droids-youre-looking-for.jpg" alt="droids" />
+                            <h1>{x.name}</h1>
+                            <li>Classification: {x.classification}</li>
+                            <li>Designation: {x.designation}</li>
+                            <li>Language: {x.language}</li>
+                            <li>Skin Colors: {x.skin_colors}</li>
                         </div>
-                            }
                         )}
+                )}
             </ul>
         </div>
     )

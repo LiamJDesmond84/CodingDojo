@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Navbar = (props) => {
     const [everything, setEverything] = useState([])
-    const [searchID, setSearchID] = useState(0)
+    const [searchID, setSearchID] = useState(1)
     const [genre, setGenre] = useState("people")
 
     const onSearchHandler = (e) => {
@@ -20,14 +20,17 @@ const Navbar = (props) => {
     },[])
 
     useEffect(() => {
-        axios.get(`https://swapi.dev/api/${genre}`)
-            .then(response => {setEverything(response.data.results)})
-            .catch(err => console.log(err))
+        axios.get(`https://swapi.dev/api/${genre}/${searchID}`)
+            .then(response => {setEverything(response.data)})
+            .catch(err => navigate("/obiwan"))
         // return function cleanup() {
         //     setEverything([])
         //     }
     }, [genre, searchID]);
 
+    useEffect(() => {
+        console.log(everything)
+    })
 
 
     const genreChange = (e) => {
