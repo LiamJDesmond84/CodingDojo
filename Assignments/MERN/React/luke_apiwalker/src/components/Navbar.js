@@ -23,8 +23,10 @@ const Navbar = (props) => {
         axios.get(`https://swapi.dev/api/${genre}`)
             .then(response => {setEverything(response.data.results)})
             .catch(err => console.log(err))
-
-    }, [genre]);
+        // return function cleanup() {
+        //     setEverything([])
+        //     }
+    }, [genre, searchID]);
 
 
 
