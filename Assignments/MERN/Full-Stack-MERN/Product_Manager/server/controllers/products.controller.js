@@ -5,6 +5,7 @@ module.exports.createProduct = (req, res) => {
     Product.create(req.body)
         .then(newlyCreatedProduct => res.json(newlyCreatedProduct))
         .catch(err => res.json(err ));}
+        
 module.exports.getAllProducts = (req, res) => {
     Product.find({})
         .then(allProducts => res.json(allProducts ))

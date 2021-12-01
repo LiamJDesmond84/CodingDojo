@@ -1,32 +1,20 @@
 import '../App.css';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import axios from "axios"
-import { Link, navigate } from "@reach/router";
+import { Link } from "@reach/router";
+import DeleteButton from './DeleteButton';
 
 const ViewAllProducts = (props) => {
-    const { hasBeenSubmitted, setHasBeenSubmitted, handleDeleteProduct } = props;
-    const [products, setProducts] = useState([])
+    const { productList, setProductList } = props;
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/products')
             .then(res=> {
             console.log(res.data);
-            setProducts(res.data);
+            setProductList(res.data);
             })
             .catch(err => console.log(err))
-    }, [hasBeenSubmitted])
-
-    // const deleteProduct = (id) => {
-    //     axios.delete(`http://localhost:8000/api/products/${id}`)
-    //         .then(res => res.json)
-    //         .catch(err => console.log(err))
-    //     navigate("/")
-    // }
-
-    const localHandleDeleteProduct = (id) => {
-        handleDeleteProduct(id);
-        setHasBeenSubmitted(!hasBeenSubmitted);
-    };
+    }, [])
 
     return (
         <div className="table">
@@ -42,20 +30,20 @@ const ViewAllProducts = (props) => {
                             <th>Delete</th>
                         </tr>
                 </thead>
-            {products.map((x,i) => {
-                return (
+            {productList.map((x,i) => {
+                return productList ?
                         <tbody key={i}>
                             <tr>
                                 <td>{x.title}</td>
                                 <td>${x.price}</td>
                                 <td>{x.description}</td>
-                                <td><Link to={`/api/products/${x._id}`}>Details</Link></td>
-                                <td><Link to={`/api/products/${x._id}/edit`}>Edit</Link></td>
-                                <td><button onClick={() => localHandleDeleteProduct(x._id)}>Delete</button></td>
+                                <td><Link to={`/api/product/${x._id}`}>Details</Link></td>
+                                <td><Link to={`/api/product/${x._id}/edit`}>Edit</Link></td>
+                                {/* <td><button onClick={() => deleteProduct(x._id)}>Delete</button></td> */}
+                                <td><DeleteButton personId={x._id} successCallback={()=>props.removeFromDom(x._id)}/></td>
                             </tr>
-                        </tbody>
-                    
-                )
+                        </tbody>:
+                        null
             })}
             </table>
         </div>
@@ -63,3 +51,4 @@ const ViewAllProducts = (props) => {
 }
 
 export default ViewAllProducts
+

@@ -10,7 +10,7 @@ const ProductDetails = (props) => {
         axios.get(`http://localhost:8000/api/products/${props.id}`)
             .then(res => {
             console.log(res.data);
-            setProductDeets({...res.data})
+            setProductDeets(res.data)
             })
             .catch(err => console.log(err))
     }, [])

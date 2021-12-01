@@ -1,19 +1,26 @@
 
-import ProductForm from '../components/ProductForm';
+// import ProductForm from '../components/ProductForm';
 import React, { useState } from 'react'
 import ViewAllProducts from '../components/ViewAllProducts';
+import CreateProduct from '../components/CreateProduct';
 
 const Main = (props) => {
-    const { handleDeleteProduct } = props;
-    const [hasBeenSubmitted, setHasBeenSubmitted] = useState(false)
+    const [productList, setProductList] = useState([])
+    // const [newProduct, setNewProduct] = useState({})
+
+    const removeFromDom = (personId) => {
+        setProductList(productList.filter(person => person._id !== personId));
+    }
 
     return (
         <div>
-            <ProductForm setHasBeenSubmitted={setHasBeenSubmitted} hasBeenSubmitted={hasBeenSubmitted} />
+            <CreateProduct productList={productList} setProductList={setProductList} />
             <hr />
-            <ViewAllProducts hasBeenSubmitted={hasBeenSubmitted} setHasBeenSubmitted={setHasBeenSubmitted} handleDeleteProduct={handleDeleteProduct} />
+            <ViewAllProducts productList={productList} setProductList={setProductList} removeFromDom={removeFromDom} />
         </div>
     )
 }
 
 export default Main
+
+// newProduct={newProduct} setNewProduct={setNewProduct}
