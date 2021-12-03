@@ -10,7 +10,7 @@ module.exports.createAuthor = (request, response) => {
 
 
 module.exports.getAllAuthors = (request, response) => {
-    Author.find({}).sort({name: 1}) //@ sort is for alphabetically only, capitals come first. (1 is ascending)
+    Author.find({}).collation({locale:'en',strength: 2}).sort({name:1}) //@ sort is for alphabetically only, capitals come first. (1 is ascending)
         .then(authors => response.json(authors))
         .catch((err)=>{console.log(err);response.status(400).json(err)})
 }
