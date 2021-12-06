@@ -5,10 +5,12 @@ import { navigate, Link } from "@reach/router";
 const AuthorDetails = (props) => {
     const { id } = props;
     const [name, setName] = useState({})
+    // const [oneProduct, setOneProduct] = useState({})
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/authors/${id}`)
-            .then(res => {console.log(res.data);setName(res.data);})
+            .then(res => {console.log(res.data);
+                setName(res.data);})
             .catch(err => {console.log(err);navigate('/error');})
     }, [id])
     return (

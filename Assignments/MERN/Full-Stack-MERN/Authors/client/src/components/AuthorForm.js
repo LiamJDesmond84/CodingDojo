@@ -1,3 +1,4 @@
+import '../App.css';
 import React, { useState } from 'react'
 import axios from "axios"
 import { navigate, Link } from "@reach/router";
@@ -11,17 +12,13 @@ const AuthorForm = (props) => {
 
     const createAuthor = (e) => {
         e.preventDefault();
-        axios
-            .post("http://localhost:8000/api/authors", {name})
-            .then((response) => {
-                console.log(response);
+        axios.post("http://localhost:8000/api/authors", {name})
+            .then((res) => {
+                console.log(res);
                 setName("");
                 navigate("/");
-
                 // setHasBeenSubmitted(!hasBeenSubmitted);
-                
-            })
-            
+                })
             .catch((err) => {
             console.log(err);
             setErrors(err.response.data.errors)});
@@ -32,12 +29,12 @@ const AuthorForm = (props) => {
         <div>
             <h1>Favorite Authors</h1>
             <h4>Add a new Author</h4>
-            <form onSubmit={createAuthor}>
+            <form className="create" onSubmit={createAuthor}>
                 <label>Author Name</label>
                 <input type="text" name="name" value={name.name} onChange={(e) => setName(e.target.value)} />
                 {
                     errors.name?
-                    <span>{errors.name.message}</span>
+                    <p>{errors.name.message}</p>
                     :null
                 }
                 <input type="submit" placeholder="Submit" />
