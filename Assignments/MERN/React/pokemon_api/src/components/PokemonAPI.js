@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 const PokemonAPI = () => {
+    const [search, setSearch] = useState("")
     const [pokemon, setPokemon] = useState([])
 
     useEffect(() => {
@@ -12,8 +13,15 @@ const PokemonAPI = () => {
 
     return (
         <div>
-            {pokemon.map((x,i) => {
-                return (
+            <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} />
+            {pokemon.filter((x) => {
+                if (search === "") {
+                    return x
+                } else if (x.name.toLowerCase().includes(search.toLowerCase())) {
+                    return x
+                }
+            }).map((x,i) => {
+                            return (
                 <div key={i}>{x.name}</div>
                 )
             })}
