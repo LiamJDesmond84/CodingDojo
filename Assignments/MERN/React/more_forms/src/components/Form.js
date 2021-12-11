@@ -16,11 +16,15 @@ const Form = (props) => {
 
     const handleFName = (e) => {
         setFirstName(e.target.value);
+        console.log(e.target.value)
         if(e.target.value.length < 1) {
+            
             setFNameError("First Name is required!");
+            
         } else if(e.target.value.length < 2) {
             setFNameError("First Name must be 2 characters or longer!");
         } else {
+
             setFNameError("");
         }
     }
@@ -47,6 +51,7 @@ const Form = (props) => {
     }
     const handlePassword = (e) => {
         setPassword(e.target.value);
+        console.log(e.target.value)
         if(e.target.value.length < 1) {
             setPasswordError("Password is required!");
         } else if(e.target.value.length < 8) {
