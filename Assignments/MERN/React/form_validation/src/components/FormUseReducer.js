@@ -28,7 +28,7 @@ const FormUseReducer =  () => {
 
     function handleChange(e) {
         const { name, value, } = e.target;
-
+        console.log(state)
         dispatch({
             type: name,
             payload: value,
@@ -47,7 +47,7 @@ const FormUseReducer =  () => {
                     <span>First Name:</span>{" "}
                     <input
                         name="firstName"
-                        value={state.firstName}
+                        value={state.firstName.value}
                         onChange={handleChange}
                     />
                     {state.firstName.error !== null && (
@@ -60,7 +60,7 @@ const FormUseReducer =  () => {
                     <span>Last Name:</span>{" "}
                     <input
                         name="lastName"
-                        value={state.lastName}
+                        value={state.lastName.value}
                         onChange={handleChange}
                     />
                     {state.lastName.error !== null && (
@@ -73,7 +73,7 @@ const FormUseReducer =  () => {
                     <span>Email:</span>{" "}
                     <input
                         name="email"
-                        value={state.email}
+                        value={state.email.value}
                         onChange={handleChange}
                     />
                     {state.email.error !== null && (
