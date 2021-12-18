@@ -27,7 +27,7 @@ const MyTodo = () => {
     
     return (
         <div>
-            <form onSubmit={createItem}>
+            {/* <form onSubmit={createItem}>
                 <label htmlFor={item}></label>
                 <input type="text" value={item} onChange={(e) => setItem(e.target.value)} />
 
@@ -61,7 +61,7 @@ const MyTodo = () => {
                     
                 </tbody>
 
-            </table>
+            </table> */}
         </div>
     )
 }

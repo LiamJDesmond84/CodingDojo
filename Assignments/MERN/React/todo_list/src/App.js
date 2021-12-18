@@ -33,7 +33,7 @@ function App() {
   }
 
   const handleToggleComplete = (index) => {
-    const updatedTodos = todos.map((x, i) => {
+    const updatedTodos = todos.filter((x, i) => {
       if(index === i) {
         x.complete = !x.complete;
         // To avoid mutating the todo(x) directly do this
