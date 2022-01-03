@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+
+<style>
+input {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+</style>
+</head>
+<body>
+    <h1>Dojos & Ninjas</h1>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h2>Add Dojo</h2>
+        <form action="/new_dojo" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" />
+            <input type="text" name="city" />
+            <input type="text" name="state" />
+            <input type="submit" value="submit" />
+        </form>
+        <h2>Add Ninja</h2>
+        <form action="/new_ninja" method="post">
+            {% csrf_token %}
+            <input type="text" name="first_name" />
+            <input type="text" name="last_name" />
+            <select name="dojo">
+                {% for d in dojos %}
+                <option value="{{d.id}}">{{d.name}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+
+<div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+
+                {% for d in dojos %}
+            <h3 style="margin: 15px;">{{ d.name }} ({{d.ninjas.count}} Ninjas)</h3>
+            <a href="/delete_dojo/{{d.id}}"><button>Delete Dojo</button></a>
+
+        <div  style="display: flex; flex-direction: column; align-items: center; justify-content: center">
+                {% for n in d.ninjas.all %}
+            <p>{{n.first_name}}</p>
+                    {% endfor %}
+        </div>
+                {% endfor %}
+
+</div>
+
+</body>
+</html>
