@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h2>Add a Book</h2>
+        <a href="/new_author">Add an Author</a>
+        <form action="/process_book" method="post">
+            {% csrf_token %}
+            <input type="text" name="title" />
+            <textarea type="text" name="desc"></textarea>
+            <input type="submit" value="submit" />
+        </form>
+        {% for x in authors %}
+        <a href="/view_author/{{x.id}}">{{x.first_name}}</a>
+        {% endfor %}
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+
+<style>
+.container {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.books {
+    margin-top: 40px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+</style>
+</head>
+<body>
+<div style="display: flex; flex-direction: column;">
+        <a href="/new_book">Add a Book</a>
+        <br />
+        <br />
+        <br />
+        <a href="/new_author">Add an Author</a>
+        <div class="container">
+        {% for x in authors_books %}
+    
+        <h2>{{ x.first_name }}</h2>
+        <a href="/delete_author/{{ x.id }}">Delete</a>
+        
+    <div class="books">
+        {% for y in x.books.all %}
+
+        <p>{{y.title}}</p>
+
+        {% endfor %}
+    </div>
+        {% endfor %}
+</div>
+</div>
+</body>
+</html>

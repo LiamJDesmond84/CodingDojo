@@ -1,0 +1,183 @@
+In [1]: from books_authors_app.models import *
+
+In [2]: Book.objects.create(title = "C Sharp", desc = "C Whateva")
+Out[2]: <Book: Book object (1)>
+
+In [3]: Book.objects.create(title = "Java", desc = "J Whateva")
+Out[3]: <Book: Book object (2)>
+
+In [4]: Book.objects.create(title = "Python", desc = "P Whateva")
+Out[4]: <Book: Book object (3)>
+
+In [5]: Book.objects.create(title = "PHP", desc = "PHP Whateva")
+Out[5]: <Book: Book object (4)>
+
+In [6]: Book.objects.create(title = "Ruby", desc = "R Whateva")
+Out[6]: <Book: Book object (5)>
+
+In [7]: Author.objects.create(first_name = "Jane", last_name = "Austen")
+Out[7]: <Author: Author object (1)>
+
+In [8]: Author.objects.create(first_name = "Emily", last_name = "Dickinson")
+Out[8]: <Author: Author object (2)>
+
+In [9]: Author.objects.create(first_name = "Fyodor", last_name = "Dostoevsky")
+Out[9]: <Author: Author object (3)>
+
+In [10]: Author.objects.create(first_name = "William", last_name = "Shakespeare")
+Out[10]: <Author: Author object (4)>
+
+In [11]: Author.objects.create(first_name = "Lau", last_name = "Tzu")
+Out[11]: <Author: Author object (5)>
+
+In [2]: u = Book.objects.get(id=1)
+
+In [3]: u.title = "C#"
+
+In [4]: u.save()
+
+In [5]: u1 = Author.objects.get(id=4)
+
+In [6]: u1.first_name = "Bill"
+
+In [7]: u.save()
+
+================================================
+
+(djangoPy3Env) C:\Users\liamj\.vscode\Practice\Bootcamp\Python\Django\ORM\books_and_authors>python manage.py makemigrations
+You are trying to add a non-nullable field 'notes' to author without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> "default note"
+Migrations for 'books_authors_app':
+  books_authors_app\migrations\0002_author_notes.py
+    - Add field notes to author
+
+(djangoPy3Env) C:\Users\liamj\.vscode\Practice\Bootcamp\Python\Django\ORM\books_and_authors>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, books_authors_app, contenttypes, sessions
+Running migrations:
+  Applying books_authors_app.0002_author_notes... OK
+
+===============================================
+
+In [8]: a1 = Author.objects.get(id=1)
+
+In [9]: a1.books.add(Book.objects.get(id=1))
+
+In [10]: a1.books.add(Book.objects.get(id=2))
+
+In [11]: a1.books.all()
+Out[11]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>]>
+
+In [12]: a2 = Author.objects.get(id=2)
+
+In [13]: a2.books.add(Book.objects.get(id=1))
+
+In [14]: a2.books.add(Book.objects.get(id=2))
+
+In [15]: a2.books.add(Book.objects.get(id=3))
+
+In [16]: a2.books.all()
+Out[16]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>]>
+
+In [17]: a3 = Author.objects.get(id=3)
+
+In [18]: a3.books.add(Book.objects.get(id=1))
+
+In [19]: a3.books.add(Book.objects.get(id=2))
+
+In [20]: a3.books.add(Book.objects.get(id=3))
+
+In [21]: a3.books.add(Book.objects.get(id=4))
+
+In [22]: a3.books.all()
+Out[22]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+
+In [23]: a4 = Author.objects.get(id=4)
+
+In [24]: a4.books.add(Book.objects.get(id=1))
+
+In [25]: a4.books.add(Book.objects.get(id=2))
+
+In [26]: a4.books.add(Book.objects.get(id=3))
+
+In [27]: a4.books.add(Book.objects.get(id=4))
+
+In [28]: a4.books.add(Book.objects.get(id=5))
+
+In [29]: a4.books.all()
+Out[29]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>, <Book: Book object (5)>]>
+
+In [30]: Book.objects.get(id=3).authors.all()
+Out[30]: <QuerySet [<Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>]>
+
+In [32]: Book.objects.get(id=3).authors.remove(Author.objects.get(id=1))
+
+In [34]: Book.objects.get(id=2).authors.add(Author.objects.get(id=5))
+
+In [39]: Author.objects.get(id=3).books.all()
+Out[39]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+
+
+In [40]: Book.objects.get(id=5).authors.all()
+Out[40]: <QuerySet [<Author: Author object (4)>]>
+===============================================
+
+Book.objects.create(title = "C Sharp", desc = "C Whateva")
+Book.objects.create(title = "Java", desc = "J Whateva")
+Book.objects.create(title = "Python", desc = "P Whateva")
+Book.objects.create(title = "PHP", desc = "PHP Whateva")
+Book.objects.create(title = "Ruby", desc = "R Whateva")
+
+Author.objects.create(first_name = "Jane", last_name = "Austen")
+Author.objects.create(first_name = "Emily", last_name = "Dickinson")
+Author.objects.create(first_name = "Fyodor", last_name = "Dostoevsky")
+Author.objects.create(first_name = "William", last_name = "Shakespeare")
+Author.objects.create(first_name = "Lau", last_name = "Tzu")
+
+u = Book.objects.get(id=1)
+u.title = "C#"
+u.save()
+
+u1 = Author.objects.get(id=4)
+u1.first_name = "Bill"
+u.save()
+
+a1 = Author.objects.get(id=1)
+a1.books.add(Book.objects.get(id=1))
+a1.books.add(Book.objects.get(id=2))
+
+a2 = Author.objects.get(id=2)
+a2.books.add(Book.objects.get(id=1))
+a2.books.add(Book.objects.get(id=2))
+a2.books.add(Book.objects.get(id=3))
+
+a3 = Author.objects.get(id=3)
+a3.books.add(Book.objects.get(id=1))
+a3.books.add(Book.objects.get(id=2))
+a3.books.add(Book.objects.get(id=3))
+a3.books.add(Book.objects.get(id=4))
+
+a4 = Author.objects.get(id=4)
+a4.books.add(Book.objects.get(id=1))
+a4.books.add(Book.objects.get(id=2))
+a4.books.add(Book.objects.get(id=3))
+a4.books.add(Book.objects.get(id=4))
+a4.books.add(Book.objects.get(id=5))
+
+Book.objects.get(id=3).authors.all()
+
+Book.objects.get(id=3).authors.remove(Author.objects.get(id=1))
+
+Book.objects.get(id=2).authors.add(Author.objects.get(id=5))
+
+Author.objects.get(id=3).books.all()
+
+Book.objects.get(id=5).authors.all()
+
