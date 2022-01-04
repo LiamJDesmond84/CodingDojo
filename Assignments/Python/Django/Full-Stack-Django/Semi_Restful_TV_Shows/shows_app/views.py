@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.http import JsonResponse
 from .models import Show
+from django.contrib import messages
 
 def index(request):
 
@@ -14,6 +15,14 @@ def new_show(request):
     return render(request, "new_show.html")
 
 def process_new_show(request):
+    errors = Show.objects.basic_validator(request.POST)
+    if len(errors) > 0:
+
+        for key, value in errors.items():
+            messages.error(request, value)
+
+        return redirect('/new_show')
+
     title = request.POST['title']
     network = request.POST['network']
     release_date = request.POST['release_date']
@@ -37,6 +46,14 @@ def edit_show(request, id):
     return render(request, "edit_show.html", context)
 
 def edit_show_process(request, id):
+    errors = Show.objects.basic_validator(request.POST)
+    if len(errors) > 0:
+
+        for key, value in errors.items():
+            messages.error(request, value)
+
+        return redirect(f'/edit_show/{id}')
+
     show_id = id
     title = request.POST['title']
     network = request.POST['network']

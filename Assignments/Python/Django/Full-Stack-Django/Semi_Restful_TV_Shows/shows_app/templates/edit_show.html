@@ -13,6 +13,14 @@
 
         <h2>Edit {{one_show.title}}</h2>
 
+        {% if messages %}
+        <ul class="messages">    
+                {% for message in messages %}    
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+            {% endif %}
+
         <form action="/edit_show_process/{{ one_show.id }}" method="post">
             {% csrf_token %}
             <label>Title</label>
