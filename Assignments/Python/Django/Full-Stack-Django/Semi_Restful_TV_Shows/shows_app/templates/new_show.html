@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h2>Add a TV Show</h2>
+
+        <form action="/process_new_show" method="post">
+            {% csrf_token %}
+            <input type="text" name="title" />
+            <input type="text" name="network" />
+            <input type="date" name="release_date" value="2021-06-12"
+            min="2021-06-07" max="2023-06-14">
+            <textarea type="text" name="desc"></textarea>
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+</body>
+</html>

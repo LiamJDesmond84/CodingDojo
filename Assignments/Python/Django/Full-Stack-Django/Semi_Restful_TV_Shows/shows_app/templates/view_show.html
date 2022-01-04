@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <a href="/">Home</a>
+        <h2>Show {{one_show.id}}</h2>
+        <br/>
+
+        <h3>Title</h3>
+        <p>{{one_show.title}}</p>
+        <h3>Network</h3>
+        <p>{{one_show.network}}</p>
+        <h3>Release Date</h3>
+        <p>{{one_show.release_date}}</p>
+        <h3>Description</h3>
+        <p>{{one_show.desc}}</p>
+        <br/>
+        <br/>
+        <a href="/edit_show/{{one_show.id}}">Edit</a>
+        <br />
+        <a href="/delete_show/{{one_show.id}}">Delete</a>
+        <h3>Last updated {{one_show.updated_at}}</h3>
+
+
+    </div>
+</body>
+</html>
