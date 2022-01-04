@@ -21,6 +21,9 @@ def register(request):
     email = request.POST['email']
     password = request.POST['password']
 
+    userEmail = User.objects.filter(email=request.POST['email'])
+    if userEmail.exists():
+        return redirect("/")
 
     pw_hash = bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
     print(pw_hash)
