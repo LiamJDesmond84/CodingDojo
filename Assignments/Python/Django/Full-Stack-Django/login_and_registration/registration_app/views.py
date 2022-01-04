@@ -29,6 +29,9 @@ def register(request):
     return redirect("/success")
 
 def success(request):
+    if "userid" not in request.session:
+        return redirect("/")
+
     context = {"users": User.objects.all()}
     return render(request, "success.html", context)
 
