@@ -26,6 +26,4 @@ public class AlfredQuotes {
             return "Right. And with that I shall retire.";
         }
     }
-    // NINJA BONUS
-    // Write your own AlfredQuote method using any of the String methods you have learned!
 }
