@@ -1,4 +1,6 @@
+// package Bootcamp.Java.Fundamentals.Puzzling;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Puzzling {
     public static void main(String[] args) {
@@ -19,10 +21,12 @@ public class Puzzling {
 
         System.out.println(z);
 
-        int[] array = {1,2,3,4,5,5,6,7};
 
-        int[] a = generator.shuffleArray(array);
-        System.out.println(a);
+        ArrayList<Integer> p = new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7));
+
+
+        ArrayList<Integer> array = generator.shuffleArray(p);
+        System.out.println(array);
 
 
     }

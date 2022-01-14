@@ -1,14 +1,10 @@
+// package Bootcamp.Java.Fundamentals.Puzzling;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 
 public class PuzzleJava {
     
-
-
-
-        
 
     Random randMachine = new Random();
 
@@ -58,19 +54,14 @@ public class PuzzleJava {
 
     }
 
-    public int[] shuffleArray(int[] array) {
-        int rand = randMachine.nextInt(0 + 1);
-        int[] stuff;
-        stuff = new int[array.length];
-        for (int i = array.length - 1; i > 0; i--)
+    public ArrayList<Integer> shuffleArray(ArrayList<Integer> arr) {
+        int rand = randMachine.nextInt(26);
+        ArrayList<Integer> stuff = new ArrayList<Integer>();
+
+        for (int i = 0; i < arr.size() + 1; i++)
+            
+            stuff.add(i * rand);
         {
-        int index = rand;
-
-        int a = array[index];
-        array[index] = array[i];
-        array[i] = a;
-        stuff[rand] = a;
-
     }
         return stuff;
     }
