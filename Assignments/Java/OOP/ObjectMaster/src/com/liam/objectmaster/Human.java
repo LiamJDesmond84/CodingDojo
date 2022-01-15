@@ -19,7 +19,6 @@ public class Human {
 	}
 
 
-
 	public String getClassName() {
 		return className;
 	}
@@ -71,7 +70,7 @@ public class Human {
 
 
 	public void attack(Human enemy) {
-		System.out.println(this.className + " attacks " + enemy.className);
+		System.out.println(this.className + " attacks the " + enemy.className);
 		enemy.health -= this.strength;
 	}
 
