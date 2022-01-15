@@ -18,6 +18,20 @@ public class ZooTest {
 		int a = zoe.displayEnergy();
 		System.out.println(a);
 		
+		Bat crazy = new Bat();
+		
+		crazy.attackTown();
+		crazy.attackTown();
+		crazy.attackTown();
+		
+		crazy.eatHumans();
+		crazy.eatHumans();
+		
+		crazy.fly();
+		crazy.fly();
+		
+		int b = crazy.getEnergy();
+		System.out.println(b);
 	}
 
 }
