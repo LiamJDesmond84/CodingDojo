@@ -2,7 +2,7 @@ package com.liam.objectmaster;
 
 public class Human {
 	
-	private String className;
+
 	
 	private int strength = 3;
 	
@@ -10,23 +10,8 @@ public class Human {
 	
 	private int intelligence = 3;
 	
-	private int health = 100;
+	protected int health = 100;
 	
-
-
-	public Human(String className) {
-		this.className = className;
-	}
-
-
-	public String getClassName() {
-		return className;
-	}
-
-
-	public void setClassName(String className) {
-		this.className = className;
-	}
 	
 	public int getStrength() {
 		return strength;
@@ -70,7 +55,6 @@ public class Human {
 
 
 	public void attack(Human enemy) {
-		System.out.println(this.className + " attacks the " + enemy.className);
 		enemy.health -= this.strength;
 	}
 
