@@ -51,11 +51,17 @@ public class BankAccount {
 				this.savings -= amount;
 				totalAmount -= amount;
 			}
+			else {
+				System.out.println("Insufficient funds");
+			}
 		}
 		else if(account == "checking") {
 			if(this.checking - amount >= 0) {
 				this.checking -= amount;
 				totalAmount -= amount;
+			}
+			else {
+				System.out.println("Insufficient funds");
 			}
 		}
 
