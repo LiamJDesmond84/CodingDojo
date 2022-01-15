@@ -7,14 +7,12 @@ public class BankAccount {
 	private static int accounts = 0;
 	private static double totalAmount;
 	
-//	public BankAccount() {
-//		
-//	}
+
 
 	public BankAccount() {
 		this.checking = 100;
 		this.savings = 100;
-		BankAccount.totalAmount = 200;
+		totalAmount = 200;
 		accounts++;
 	}
 
@@ -36,7 +34,7 @@ public class BankAccount {
 	}
 	
 	public void deposit(double amount, String account) {
-		BankAccount.totalAmount += amount;
+		totalAmount += amount;
 		if(account == "savings") {
 			this.savings += amount;
 		}
@@ -47,22 +45,20 @@ public class BankAccount {
 	}
 	
 	public void widthdraw(double amount, String account) {
-		boolean successful = false;
-		if(account.equals("savings")) {
+
+		if(account =="savings" ) {
 			if(this.savings - amount >= 0) {
-				successful = true;
 				this.savings -= amount;
+				totalAmount -= amount;
 			}
 		}
-		else if(account.equals("checking")) {
+		else if(account == "checking") {
 			if(this.checking - amount >= 0) {
-				successful = true;
 				this.checking -= amount;
+				totalAmount -= amount;
 			}
 		}
-		if(successful) {
-			BankAccount.totalAmount -= amount;
-		}
+
 			}
 		
 	
