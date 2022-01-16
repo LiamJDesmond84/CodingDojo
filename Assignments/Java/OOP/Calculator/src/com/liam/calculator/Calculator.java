@@ -30,6 +30,12 @@ public class Calculator {
 		if( this.operator == '-') {
 			results = (num1) - (num2);
 		}
+		if( this.operator == '*') {
+			results = (num1) * (num2);
+		}
+		if( this.operator == '/') {
+			results = (num1) / (num2);
+		}
 	}
 	
 	public void getResults() {
