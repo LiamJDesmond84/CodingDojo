@@ -27,6 +27,7 @@ public class NinjaGoldController {
 
 		if(session.getAttribute("gold") != null && session.getAttribute("log") != null) {
 			Integer gold = (Integer) session.getAttribute("gold");
+			@SuppressWarnings("unchecked")
 			ArrayList<String> log = (ArrayList<String>) session.getAttribute("log");
 			model.addAttribute("log", log);
 			model.addAttribute("gold", gold);
@@ -49,6 +50,7 @@ public class NinjaGoldController {
     public String result(HttpSession session, @RequestParam("hidden") String hidden, Model model) {
 		Integer gold = (Integer) session.getAttribute("gold");
 
+		@SuppressWarnings("unchecked")
 		ArrayList<String> log = (ArrayList<String>) session.getAttribute("log");
 
 
