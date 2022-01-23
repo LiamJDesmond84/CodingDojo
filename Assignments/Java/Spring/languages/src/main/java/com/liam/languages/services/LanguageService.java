@@ -1,7 +1,7 @@
 package com.liam.languages.services;
 
 import java.util.List;
-import java.util.Optional;
+//import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,36 +22,36 @@ public class LanguageService {
         return languageRepo.findAll();
     }
     
+    public Language findLanguage(Long id) {
+    	return languageRepo.findById(id).orElse(null);
+//        Optional<Language> optionalLanguage = languageRepo.findById(id);
+//        
+//        if(optionalLanguage.isPresent()) {
+//            return optionalLanguage.get();
+//        }
+//        else {
+//            return null;
+//        }
+    }
+    
 
     public Language createLanguage(Language lang) {
         return languageRepo.save(lang);
     }
     
 
-    public Language findLanguage(Long id) {
-        Optional<Language> optionalLanguage = languageRepo.findById(id);
-        
-        if(optionalLanguage.isPresent()) {
-            return optionalLanguage.get();
-        }
-        else {
-            return null;
-        }
-    }
-    
-    public Language updateLanguage(Language updatedlang) {
 
-        return languageRepo.save(updatedlang);
+    
+    public Language updateLanguage(Language lang) {
+        return languageRepo.save(lang);
     }
 
     	
 
     
     public void deleteLanguage(Long Id) {
-    	Optional<Language> optionalLanguage = (languageRepo.findById(Id));
-    	if(optionalLanguage.isPresent()) {
     		languageRepo.deleteById(Id);
     	}
 
     }
-}
+

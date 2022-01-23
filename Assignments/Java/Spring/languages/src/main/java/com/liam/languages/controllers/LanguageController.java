@@ -39,7 +39,7 @@ public class LanguageController {
         return "/languages/show.jsp";
     }
     
-    // Create Form
+    // Create Form PAGE
     @RequestMapping("/languages/new")
     public String newLanguage(@ModelAttribute("language") Language language) {
         return "/languages/new.jsp";
