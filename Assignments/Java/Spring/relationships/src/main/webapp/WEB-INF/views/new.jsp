@@ -12,7 +12,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:useBean id="date" class="java.util.Date"/>
+
 	<div class="container">
 	 	<form:form action="/create/license" method="POST" modelAttribute="license">
 	
@@ -31,8 +31,8 @@
 	 		<div class="form-group">
 	 			<form:label path="expirationDate">Expiration Date:</form:label>
 	 			<form:errors path="expirationDate" />
-	 			<form:input type="date" path="expirationDate" pattern="yyyy-MM-dd" />
-	 			<%--<fmt:formatDate value="${date}" type="date" pattern="dd-MMM-yyyy"/>--%>
+	 			<form:input type="date" path="expirationDate"/>
+
 	 		</div>
 	 		<div class="form-group">
 	 			<form:label path="state">State:</form:label>
