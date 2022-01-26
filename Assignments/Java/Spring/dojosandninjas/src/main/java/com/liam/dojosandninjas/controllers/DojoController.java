@@ -40,11 +40,7 @@ public class DojoController {
     // Get One with Serfs
     @RequestMapping("/dojos/{id}")
     public String show(@PathVariable("id") Long id, Model model) {
-    	Dojo dojo = mainServ.getOne(id);
-    	List<Ninja> serfs = dojo.getNinjas();
-
-    	model.addAttribute("dojo", dojo);
-        model.addAttribute("ninjas", serfs);
+    	model.addAttribute("dojo", this.mainServ.getOne(id));
         return "/views/show.jsp";
     }
     

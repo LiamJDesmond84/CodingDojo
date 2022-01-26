@@ -24,7 +24,7 @@
  			</tr>
  			</thead>
  			<tbody> <!-- Loop through all dogs -->
-			<c:forEach items="${ninjas}" var="x">
+			<c:forEach items="${dojo.ninjas}" var="x">
  			<tr>
  				<td><a href="/ninjas/show/${x.id}">${x.firstName}</a></td>
  				<td>${x.lastName}</td>
