@@ -43,7 +43,9 @@
 		<button>Add Tag</button>
 	</form>
 	</div>
-<div class="container d-flex justify-content-center align-items-center flex-column">
+	
+	
+<%-- <div class="container d-flex justify-content-center align-items-center flex-column">
 
 	<form action="/addSideToMain/${question.id}" method="POST">
 		<p>Add an Answer</p>
@@ -54,10 +56,28 @@
 		</select>
 		<br/>
 
-		<button>Add Side</button>
-	</form>
+		<button>Add Answer</button>
+	</form>--%>
 </div>
+	
+	
+	
+	
+	
+	
+	<div class="container d-flex justify-content-center align-items-center flex-column">
+	<h1>New Answer</h1>
+	
+	<form:form action="/create/answerForQuestion" method="POST" modelAttribute="answer">
+		<form:label path="newAnswer">Answer:</form:label>
+		<form:errors path="newAnswer"></form:errors>
+		<form:input path="newAnswer"></form:input>
+		<form:hidden path="question" value="${question.id}"/>
+		<button>Add Answer</button>
+	</form:form>
 </div>
+
+
 
 
 </body>

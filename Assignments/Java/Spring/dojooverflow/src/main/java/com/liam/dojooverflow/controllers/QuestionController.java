@@ -44,7 +44,7 @@ public class QuestionController {
     
     // Get Main with All Serfs ---&--- Serfs already related
     @RequestMapping("/questions/show/{id}")
-    public String show(@PathVariable("id") Long id, Model model) {
+    public String show(@PathVariable("id") Long id,@ModelAttribute("answer") Answer side, Model model) {
     	Question main = mainServ.getOne(id);
     	
     	List<Tag> allOthersSerfs = mainServ.findByQuestionsNotContains(main);
@@ -337,6 +337,17 @@ public class QuestionController {
 //            return "redirect:/questions";
 //        }
 //    }
+    
+    @RequestMapping(value="/create/answerForQuestion", method=RequestMethod.POST)
+	public String createTag(@Valid @ModelAttribute("answer") Answer answer, BindingResult result, Model viewModel) {
+		Long mainId = answer.getQuestion().getId();
+		if (result.hasErrors()) {
+			viewModel.addAttribute("dog", this.mainServ.getOne(mainId));
+			return "show.jsp";
+		}
+		this.mainServ.createSide(answer);
+		return "redirect:/questions/show/" + mainId;
+	}
     
     
     
