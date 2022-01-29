@@ -253,6 +253,9 @@ public class QuestionController {
         return "/views/newSide.jsp";
     }
     
+    
+    
+    
     // Create Side Processing with MAIN dropdown
     @RequestMapping(value="/create/answer", method=RequestMethod.POST)
     public String createSide(@Valid @ModelAttribute("answer") Answer obj, BindingResult result, Model model) {
@@ -338,6 +341,7 @@ public class QuestionController {
 //        }
 //    }
     
+    // Create new Side on Main Show Page
     @RequestMapping(value="/create/answerForQuestion", method=RequestMethod.POST)
 	public String createTag(@Valid @ModelAttribute("answer") Answer answer, BindingResult result, Model viewModel) {
 		Long mainId = answer.getQuestion().getId();

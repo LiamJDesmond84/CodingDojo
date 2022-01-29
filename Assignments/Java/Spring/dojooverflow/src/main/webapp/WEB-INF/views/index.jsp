@@ -17,19 +17,30 @@
 	<a href="/questions/new">Add an Question</a>
 
 	
-<div class="container d-flex justify-content-center align-items-center flex-column">
+<div class="container d-flex justify-content-center align-items-center flex-column flex-wrap">
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Question</th>
+					<th>Answers</th>
+					<th>Tags</th>
 
 				</tr>
 			</thead>
 			<tbody>
 			<c:forEach items="${questions}" var="x">
 				<tr>
-					<td><a href="/questions/show/${x.id}">${x.newQuestion}</a></td>
+				<td><a href="/questions/show/${x.id}">${x.newQuestion}</a></td>
 
+			<c:forEach items="${x.answers}" var="x">
+				<td>${x.newAnswer}</td>
+			</c:forEach>
+			
+			<c:forEach items="${x.tags}" var="x">
+				<td>${x.subject}</td>
+			</c:forEach>
+			
+				</tr>
 			</c:forEach>
 			</tbody>
 		</table>

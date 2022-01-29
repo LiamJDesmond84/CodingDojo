@@ -14,20 +14,50 @@
 <div class="container d-flex justify-content-center align-items-center flex-column">
 	<h3>Question:</h3>
 	<p>${question.newQuestion}</p>
+	
+<div class="container d-flex justify-content-center align-items-center flex-column">
+	<h1>Give an Answer</h1>
+	
+	<form:form action="/create/answerForQuestion" method="POST" modelAttribute="answer">
+		<form:label path="newAnswer">Answer:</form:label>
+		<form:errors path="newAnswer"></form:errors>
+		<form:input path="newAnswer"></form:input>
+		<form:hidden path="question" value="${question.id}"/>
+		<button>Add Answer</button>
+	</form:form>
+</div>
+</div>
+<div class="container d-flex justify-content-center align-items-center flex-row flex-wrap">
 	<p>Tags:</p>
 	<ol>
 		<c:forEach items="${question.tags}" var="x">
 		<li><a href="/tags/show/${x.id}">${x.subject}</a></li>
 		</c:forEach>
 	</ol>
-	
-	<p>Answers:</p>
-	<ol>
-		<c:forEach items="${question.answers}" var="x">
-		<li><a href="/answers/show/${x.id}">${x.newAnswer}</a></li>
-		</c:forEach>
-	</ol>
+</div>
 
+<div class="container d-flex justify-content-center align-items-center flex-row flex-wrap">
+
+	<table>
+<thead>
+		<tr>
+			<th>Answer</th>
+		</tr>
+</thead>
+<tbody>
+		<tr>
+			<c:forEach items="${question.answers}" var="x">
+				<td>${x.newAnswer}</td>
+			</c:forEach>
+		</tr>
+</tbody>
+	</table>
+
+  
+
+
+	
+</div>
 
 	<div class="container d-flex justify-content-center align-items-center flex-column">
 	<p>Add a Tag</p>
@@ -58,14 +88,13 @@
 
 		<button>Add Answer</button>
 	</form>--%>
-</div>
+
 	
 	
 	
 	
 	
-	
-	<div class="container d-flex justify-content-center align-items-center flex-column">
+<div class="container d-flex justify-content-center align-items-center flex-column">
 	<h1>New Answer</h1>
 	
 	<form:form action="/create/answerForQuestion" method="POST" modelAttribute="answer">
