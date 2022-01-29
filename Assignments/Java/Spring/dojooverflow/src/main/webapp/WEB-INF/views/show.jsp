@@ -87,7 +87,7 @@
 		<br/>
 
 		<button>Add Answer</button>
-	</form>--%>
+	</form>
 
 	
 	
@@ -104,7 +104,7 @@
 		<form:hidden path="question" value="${question.id}"/>
 		<button>Add Answer</button>
 	</form:form>
-</div>
+</div>--%>
 
 
 

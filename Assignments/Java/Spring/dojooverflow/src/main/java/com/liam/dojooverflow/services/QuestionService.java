@@ -187,7 +187,7 @@ public class QuestionService {
 //	}
     
     
-	// Add Main AAANNNDDDD Seff
+	// Add Main AAANNNDDDD Serf
 //	public void addMainAndSerf(Tag tag, Question question) {
 //		this.secondRepo.save(tag);
 //		this.mainRepo.save(question);
@@ -198,7 +198,7 @@ public class QuestionService {
 //		this.mainRepo.save(question);
 //	}
 	
-//	// Add Main AAANNNDDDD Seff
+//	// Add Main AAANNNDDDD Serf
 //	public void addMainAndSerf(Question question) {
 //		List<Tag> questionsTags = new ArrayList<Tag>();
 //		for(String subject: question.splitTags()) {

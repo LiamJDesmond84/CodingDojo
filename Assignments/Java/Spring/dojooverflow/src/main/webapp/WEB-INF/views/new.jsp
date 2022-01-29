@@ -36,9 +36,9 @@
 		        <form:textarea class="form-control" path="newQuestion"></form:textarea>
 		    </div>
 		    <div class="form-group">
-		        <form:label path="tags">Tags</form:label>
-		        <form:errors path="tags"/>
-		        <form:input class="form-control" path="tags"/>
+		        <form:label path="subject">Tags</form:label>
+		        <form:errors path="subject"/>
+		        <form:input class="form-control" path="subject"/>
 		    </div>
 		    <button>Submit</button>
 		</form:form>
