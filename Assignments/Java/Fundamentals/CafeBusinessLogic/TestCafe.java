@@ -1,6 +1,6 @@
-// package Bootcamp.Java.Fundamentals.CafeBusinessLogic;
 
 import java.util.ArrayList;
+
 public class TestCafe {
     public static void main(String[] args) {
 
@@ -53,6 +53,8 @@ public class TestCafe {
             "Zoe", "Jesse"};
         System.out.println(appTest.getRaffleWinners(customers));
 
-        
+
+
+        appTest.addCustomer();
     }
 }

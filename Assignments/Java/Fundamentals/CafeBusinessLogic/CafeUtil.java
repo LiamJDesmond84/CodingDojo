@@ -1,6 +1,6 @@
+
 import java.util.ArrayList;
 
-// package Bootcamp.Java.Fundamentals.CafeBusinessLogic;
 
 
 
@@ -72,5 +72,20 @@ public class CafeUtil {
             }
         }
         return winners;
+    }
+
+    public void addCustomer() {
+        ArrayList<String> customers2 = new ArrayList<String>();
+        customers2.add("John");
+        customers2.add("Bob");
+        customers2.add("Sally");
+        customers2.add("Frank");
+        String userName = System.console().readLine();
+        System.out.println("Hello, " + userName + "!");
+        int size = customers2.size();
+        System.out.println("There are " + size + " people in front of you");
+        customers2.add(userName);
+        System.out.println(customers2);
+
     }
 }
