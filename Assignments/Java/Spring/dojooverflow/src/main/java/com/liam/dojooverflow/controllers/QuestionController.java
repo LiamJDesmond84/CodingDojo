@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -66,7 +69,7 @@ public class QuestionController {
     }
 
     // Create Processing
-    @RequestMapping(value="/create/question", method=RequestMethod.POST)
+    @PostMapping("/create/question")
     public String create(@Valid @ModelAttribute("question") Question obj, BindingResult result, Model model) {
     	
         if (result.hasErrors()) {
@@ -81,7 +84,7 @@ public class QuestionController {
     }
     
     // Edit Form
-    @RequestMapping("/questions/{id}/edit")
+    @GetMapping("/questions/{id}/edit")
     public String editForm(@PathVariable("id") Long id, Model model) {
     	Question question = mainServ.getOne(id);
         model.addAttribute("question", question);
@@ -89,7 +92,7 @@ public class QuestionController {
     }
     
     // Edit Processing
-    @RequestMapping(value="/questions/{id}", method=RequestMethod.PUT)
+    @PutMapping("/questions/{id}")
     public String update(@Valid @ModelAttribute("question") Question obj, BindingResult result) {
         if (result.hasErrors()) {
         	return "views/edit.jsp";
@@ -111,7 +114,7 @@ public class QuestionController {
     // ONE:MANY ///////////////////
     
     // Serf form
-    @RequestMapping("/tags/new")
+    @GetMapping("/tags/new")
     public String newSerfForm(@ModelAttribute("tag") Tag obj, Model model) {
         List<Question> everything = mainServ.getAll();
         model.addAttribute("questions", everything);
@@ -119,7 +122,7 @@ public class QuestionController {
     }
     
     // Create Serf Processing
-    @RequestMapping(value="/create/tag", method=RequestMethod.POST)
+    @PostMapping("/create/tag")
     public String createSerf(@Valid @ModelAttribute("tag") Tag obj, BindingResult result, Model model) {
 //    	Long questionId = obj.getQuestion().getId();
         if (result.hasErrors()) {
@@ -134,7 +137,7 @@ public class QuestionController {
     }
     
     // Get all Serfs
-    @RequestMapping("/tags")
+    @GetMapping("/tags")
     public String getAllOthers(Model model) {
     	
     	List<Tag> allOthers = mainServ.getAllSerfs();
@@ -143,7 +146,7 @@ public class QuestionController {
     }
     
     // Get one Serf with All Mains ---&--- Mains already related
-    @RequestMapping("/tags/show/{id}")
+    @GetMapping("/tags/show/{id}")
     public String getOneSerf(@PathVariable("id") Long id, Model model) {
     	Tag serf = mainServ.getOneSerf(id);
 
@@ -157,7 +160,7 @@ public class QuestionController {
     }
     
     // Edit Serf Form
-    @RequestMapping("/tags/edit/{id}")
+    @GetMapping("/tags/edit/{id}")
     public String editSerfForm(@PathVariable("id") Long id, Model model) {
     	Question question = mainServ.getOne(id);
         model.addAttribute("question", question);
@@ -165,7 +168,7 @@ public class QuestionController {
     }
     
     // Edit Serf Processing
-    @RequestMapping(value="/tags/{id}", method=RequestMethod.PUT)
+    @PutMapping(value="/tags/{id}")
     public String updateSerf(@Valid @ModelAttribute("question") Tag obj, BindingResult result) {
         if (result.hasErrors()) {
         	return "views/editSerf.jsp";
@@ -246,7 +249,7 @@ public class QuestionController {
     // ONE:MANY ///////////////////
     
     // Side form
-    @RequestMapping("/answers/new")
+    @GetMapping("/answers/new")
     public String newSideForm(@ModelAttribute("answer") Answer obj, Model model) {
         List<Question> everything = mainServ.getAll();
         model.addAttribute("questions", everything);
@@ -257,7 +260,7 @@ public class QuestionController {
     
     
     // Create Side Processing with MAIN dropdown
-    @RequestMapping(value="/create/answer", method=RequestMethod.POST)
+    @PostMapping("/create/answer")
     public String createSide(@Valid @ModelAttribute("answer") Answer obj, BindingResult result, Model model) {
 //    	Long questionId = obj.getQuestion().getId();
         if (result.hasErrors()) {
@@ -276,7 +279,7 @@ public class QuestionController {
 
     
     // Get all Sides
-    @RequestMapping("/answers")
+    @GetMapping("/answers")
     public String getAllSides(Model model) {
     	
     	List<Answer> allSides = mainServ.getAllSides();
@@ -285,7 +288,7 @@ public class QuestionController {
     }
     
     // Get one Side
-    @RequestMapping("/answers/show/{id}")
+    @GetMapping("/answers/show/{id}")
     public String getOneSide(@PathVariable("id") Long id, Model model) {
     	Answer side = mainServ.getOneSide(id);
     	Question question = side.getQuestion();
@@ -326,28 +329,50 @@ public class QuestionController {
 //	}
     
     
-//    // Add Main AANNNNDDDD Serf
-//    @RequestMapping(value="/createQuestionAndTag", method=RequestMethod.POST)
-//    public String createQuestionAndTag(@Valid @ModelAttribute("question") Question obj, BindingResult result, Model model) {
-//    	
-//        if (result.hasErrors()) {
-//        	
-//            List<Question> everything = mainServ.getAll();
-//            model.addAttribute("questions", everything);
-//            return "views/new.jsp";
-//        } else {
-//        	mainServ.addMainAndSerf(obj);
-//            return "redirect:/questions";
-//        }
-//    }
+    // Add Main AANNNNDDDD Serf
+    @PostMapping("/createQuestionAndTag")
+    public String createQuestionAndTag(@Valid @ModelAttribute("question") Question obj, BindingResult result, @RequestParam("subject") String tag, Model model) {
+    	
+        if (result.hasErrors()) {
+        	
+            List<Question> everything = mainServ.getAll();
+            model.addAttribute("questions", everything);
+            return "views/new.jsp";
+        }
+        if(tag.isEmpty()) {
+            List<Question> everything = mainServ.getAll();
+            model.addAttribute("questions", everything);
+            return "views/new.jsp";
+        }
+        Tag newTag = new Tag();
+        newTag.setSubject(tag);
+        
+        mainServ.createSerf(newTag);
+        mainServ.create(obj);
+//        Long questId = obj.getId();
+//		Long tagId = newTag.getId();
+//		Question question = mainServ.getOne(questId);
+//		Tag addTag = mainServ.getOneSerf(tagId);
+//		
+//		System.out.println(question);
+//		System.out.println(addTag);
+        
+//        List<Tag> allTags = obj.getTags();
+//        allTags.add(newTag);
+
+        
+//    	mainServ.addMainAndSerf(newTag, obj);
+        return "redirect:/questions";
+
+    }
     
     // Create new Side on Main Show Page
-    @RequestMapping(value="/create/answerForQuestion", method=RequestMethod.POST)
+    @PostMapping("/create/answerForQuestion")
 	public String createTag(@Valid @ModelAttribute("answer") Answer answer, BindingResult result, Model viewModel) {
 		Long mainId = answer.getQuestion().getId();
 		if (result.hasErrors()) {
 			viewModel.addAttribute("dog", this.mainServ.getOne(mainId));
-			return "show.jsp";
+			return "views/show.jsp";
 		}
 		this.mainServ.createSide(answer);
 		return "redirect:/questions/show/" + mainId;

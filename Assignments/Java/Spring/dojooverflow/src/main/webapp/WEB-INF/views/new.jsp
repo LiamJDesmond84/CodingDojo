@@ -15,19 +15,19 @@
 
 <div class="container d-flex justify-content-center align-items-center flex-column">
 	<a href="/create/tag">Add a Tag</a>
-<h1>New Question</h1>
+<%-- <h1>New Question</h1>
 	<form:form action="/create/question" method="POST" modelAttribute="question">
 		<form:label path="newQuestion">Question:</form:label>
 		<form:errors path="newQuestion"></form:errors>
 		<form:input path="newQuestion"></form:input>
 		
 		<button type="submit">Create</button>
-	</form:form>
+	</form:form> --%>
 	
 	
 	
 	 	
-	<%-- <div class="container d-flex justify-content-center align-items-center flex-column">
+	<div class="container d-flex justify-content-center align-items-center flex-column">
 		<h1>What is your question</h1>
 		<form:form action="/createQuestionAndTag" method="post" modelAttribute="question">
 			 <div class="form-group">
@@ -36,13 +36,13 @@
 		        <form:textarea class="form-control" path="newQuestion"></form:textarea>
 		    </div>
 		    <div class="form-group">
-		        <form:label path="subject">Tags</form:label>
-		        <form:errors path="subject"/>
-		        <form:input class="form-control" path="subject"/>
+		        <label>Tags</label>
+
+		        <input class="form-control" name="subject"/>
 		    </div>
 		    <button>Submit</button>
 		</form:form>
-</div>--%>
+</div>
 
 
 	

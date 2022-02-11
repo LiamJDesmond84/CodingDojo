@@ -20,10 +20,11 @@
 	
 	<form:form action="/create/answerForQuestion" method="POST" modelAttribute="answer">
 		<form:label path="newAnswer">Answer:</form:label>
-		<form:errors path="newAnswer"></form:errors>
 		<form:input path="newAnswer"></form:input>
-		<form:hidden path="question" value="${question.id}"/>
 		<button>Add Answer</button>
+		<br/>
+		<form:errors path="newAnswer"></form:errors>
+		<form:hidden path="question" value="${question.id}"/>
 	</form:form>
 </div>
 </div>
@@ -58,9 +59,9 @@
 
 	
 </div>
-
+	<hr/>
 	<div class="container d-flex justify-content-center align-items-center flex-column">
-	<p>Add a Tag</p>
+	<h4>Add a Tag</h4>
 	<form action="/addSerfToMain/${question.id}" method="POST">
 
 		<select name="tag_id">

@@ -181,22 +181,26 @@ public class QuestionService {
 
 //	// Remove Main from Side
 //	public void removeMainFromSide(Question question, Answer answer) {
-//		answer.getQuestion().add(question);
+//		answer.getQuestion().remove(question);
 //
 //		this.sideRepo.save(answer);
 //	}
     
     
 	// Add Main AAANNNDDDD Serf
-//	public void addMainAndSerf(Tag tag, Question question) {
-//		this.secondRepo.save(tag);
-//		this.mainRepo.save(question);
+	public void addMainAndSerf(Tag tag, Question question) {
+
+		question.getTags().add(tag);
+//		tag.getQuestions().add(question);
+//		List<Question> newQuestions = tag.getQuestions();
+//		newQuestions.add(question);
 //		question.getTags().add(tag);
 //		tag.getQuestions().add(question);
-//		
-//		this.secondRepo.save(tag);
-//		this.mainRepo.save(question);
-//	}
+		secondRepo.save(tag);
+		mainRepo.save(question);
+		
+
+	}
 	
 //	// Add Main AAANNNDDDD Serf
 //	public void addMainAndSerf(Question question) {
