@@ -21,32 +21,42 @@
 
 //# Pop Front
 
-var arr1 = [1, 2, 3, 4]
+// var arr1 = [6, 2, 3, 4]
 
-function popFront(arr) {
+// function popFront(arr) {
 
-    var temp = 0
+//     var val = arr[0];
 
-    for(var x = 0; x < arr.length; x++) {
+//     for(var x = 0; x < arr.length; x++) {
 
+//         arr[x] = arr[x + 1];
 
+//     }
 
-        arr[x] = arr[x + 1];
-    }
-    temp = arr[0];
-    arr.length = arr.length - 1;
+//     arr.length = arr.length - 1;
 
-    return temp
-}
+//     return val
+// }
 
+// console.log(popFront(arr1));
+// console.log(arr1);
 
+//# Insert At
 
-console.log(popFront(arr1));
-console.log(arr1);
+// var arr1 = [6, 2, 3, 4]
 
-//# 
+// function insertAt(arr, index, val) {
 
+//     for(var x = arr.length - 1; x >= index; x--) {
+//         arr[x + 1] = arr[x];
+//     }
+//     arr[x + 1] = val;
 
+// }
+
+// insertAt(arr1, 2, 7);
+
+// console.log(arr1);
 
 
 //# 
