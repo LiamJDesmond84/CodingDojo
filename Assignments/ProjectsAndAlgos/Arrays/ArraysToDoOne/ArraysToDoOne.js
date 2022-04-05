@@ -59,14 +59,30 @@
 // console.log(arr1);
 
 
-//# 
+//# Remove At
 
+var arr1 = [6, 2, 3, 4]
 
+function removeAt(arr, index) {
 
+    //* Rounds index down
+    index = Math.floor(index);
 
-//# 
+    //* If index out of array range
+    if (index < 0 || index >= arr.length)  {
+        return null;
+    }
+    var val = arr[index];
 
+    //* Start looping after index(that will be removed)
+    for (var i = index + 1; i < arr.length; i++) {
+        arr[i-1] = arr[i];
+    }
+    arr.pop();
 
+    return val;
+}
+removeAt(arr1, 2);
 
+console.log(arr1);
 
-//# 
