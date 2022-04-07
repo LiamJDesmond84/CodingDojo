@@ -82,34 +82,52 @@
 
 //# Filter Range
 
+// var myArr = [1, 2, 4, 6, 7, 8];
 
-var myArr = [1, 2, 4, 6, 7, 8];
+// function filterRangeV2(arr, minVal, maxVal) {
 
+//     //* Index where the next array value that's from min to max (inclusively) will go Loop through the array
+//     var nextInd = 0;
 
-// Second version with only one for loop
-function filterRange(arr, minVal, maxVal) {
+//     for (var i = 0; i < arr.length; i++) {
+//         if (arr[i] >= minVal && arr[i] <= maxVal) {
 
-    for (var x = 0; x < arr.length; x++) {
+//             arr[nextInd] = arr[i];
 
-        // If value is NOT from min to max (inclusively)
-        if (arr[x] < minVal || arr[x] > maxVal) {
+//             //* Increment index for next valid value found
+//             nextInd++;
+//         }
+//     }
 
-            // Move everything that comes afterwards left one index
-            for (var y = x+1; y < arr.length; y++) {
-                arr[y-1] = arr[y];
-            }
-
-            arr.length--; // Decrease the length of the array by one
-            x--; // To cancel the i++ operation effectively
-        }
-    }
-}
+//     //* Remove excess values
+//     arr.length = nextInd; 
+// }
 
 
-filterRange(myArr, 0, 3);
-console.log(myArr);
+// filterRangeV2(myArr, 4, 8);
+// console.log(myArr);
 
 //# Concat
 
+var myArr = [1, 2, 4, 5, 6, 7, 8];
 
-// var myArr = [1, 2, 4, 6, 7, 8];
+var myArr2 = [9, 10, 11];
+
+function concat(arr, arr2) {
+
+    var newArr = [];
+
+    for(var x = 0; x < arr.length; x++) {
+        newArr.push(arr[x]);
+    }
+
+    for(var y = 0; y < arr2.length; y++) {
+        newArr.push(arr2[y]);
+    }
+    return newArr;
+
+}
+
+var result = concat(myArr, myArr2);
+
+console.log(result);
