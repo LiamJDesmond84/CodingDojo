@@ -8,8 +8,14 @@
 
 //     newArr = [];
 
+//     index = 0;
+
 //     for(var x = arr.length-1; x >= 0; x--) {
-//         newArr.push(arr[x]);
+
+//         newArr[index] = arr[x];
+
+//         index++;
+
 //     }
 //     return newArr;
 
@@ -36,7 +42,7 @@
 //         actualMovementsNeeded = Math.abs(shiftBy) % arr.length;
 //     }
     
-//     //* Handle rotations to the right
+//     //* Right rotations
 //     if (shiftBy > 0) {
 
 //         //* Loop through all the rotations
@@ -54,7 +60,7 @@
 //             arr[0] = temp;
 //         }
 
-//     //* Handle rotations to the left
+//     //* Left rotations
 //     } else {
 
 //         for (var x = 0; x < actualMovementsNeeded; x++) {
@@ -82,58 +88,58 @@
 
 //# Filter Range
 
-var myArr = [1, 2, 4, 6, 7, 8];
+// var myArr = [1, 2, 4, 6, 7, 8];
 
-function filterRangeV2(arr, minVal, maxVal) {
+// function filter(arr, min, max) {
 
-    //* Index where the next array value that's from min to max (inclusively) will go Loop through the array
-    var nextInd = 0;
+//     //* Index for the value between min & max for each iteration
+//     var ind = 0;
 
-    for (var x = 0; x < arr.length; x++) {
-        if (arr[x] >= minVal && arr[x] <= maxVal) {
+//     for (var x = 0; x < arr.length; x++) {
+//         if (arr[x] >= min && arr[x] <= max) {
 
-            arr[nextInd] = arr[x];
+//             arr[ind] = arr[x];
 
-            //* Increment index for next valid value found
-            nextInd++;
-        }
-    }
+//             //* Increment index for next round
+//             ind++;
+//         }
+//     }
 
-    //* Remove excess values
-    arr.length = nextInd; 
-}
+//     //* Remove excess values
+//     arr.length = ind; 
+// }
 
 
-filterRangeV2(myArr, 4, 8);
-console.log(myArr);
+// filter(myArr, 4, 8);
+// console.log(myArr);
 
 //# Concat
 
-var myArr = [1, 2, 4, 5, 6, 7, 8];
+// var myArr = [1, 2, 4, 5, 6, 7, 8];
 
-var myArr2 = [9, 10, 11];
+// var myArr2 = [9, 10, 11];
 
-function concat(arr, arr2) {
+// function concat(arr, arr2) {
 
-    var newArr = [];
+//     var newArr = [];
 
-    var index = 0;
+//     var index = 0;
 
-    for(var x = 0; x < arr.length; x++) {
+//     for(var x = 0; x < arr.length; x++) {
 
-        newArr[index] = arr[x];
-        index++;
+//         newArr[index] = arr[x];
+//         index++;
 
-    }
+//     }
 
-    for(var y = 0; y < arr2.length; y++) {
-        newArr[index] = arr2[y];
-        index++;
-    }
-    return newArr;
+//     for(var y = 0; y < arr2.length; y++) {
+//         newArr[index] = arr2[y];
+//         index++;
+//     }
+//     return newArr;
 
-}
+// }
 
-var result = concat(myArr, myArr2);
+// var result = concat(myArr, myArr2);
 
-console.log(result);
+// console.log(result);
