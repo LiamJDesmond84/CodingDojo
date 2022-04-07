@@ -82,30 +82,30 @@
 
 //# Filter Range
 
-// var myArr = [1, 2, 4, 6, 7, 8];
+var myArr = [1, 2, 4, 6, 7, 8];
 
-// function filterRangeV2(arr, minVal, maxVal) {
+function filterRangeV2(arr, minVal, maxVal) {
 
-//     //* Index where the next array value that's from min to max (inclusively) will go Loop through the array
-//     var nextInd = 0;
+    //* Index where the next array value that's from min to max (inclusively) will go Loop through the array
+    var nextInd = 0;
 
-//     for (var i = 0; i < arr.length; i++) {
-//         if (arr[i] >= minVal && arr[i] <= maxVal) {
+    for (var x = 0; x < arr.length; x++) {
+        if (arr[x] >= minVal && arr[x] <= maxVal) {
 
-//             arr[nextInd] = arr[i];
+            arr[nextInd] = arr[x];
 
-//             //* Increment index for next valid value found
-//             nextInd++;
-//         }
-//     }
+            //* Increment index for next valid value found
+            nextInd++;
+        }
+    }
 
-//     //* Remove excess values
-//     arr.length = nextInd; 
-// }
+    //* Remove excess values
+    arr.length = nextInd; 
+}
 
 
-// filterRangeV2(myArr, 4, 8);
-// console.log(myArr);
+filterRangeV2(myArr, 4, 8);
+console.log(myArr);
 
 //# Concat
 
@@ -117,12 +117,18 @@ function concat(arr, arr2) {
 
     var newArr = [];
 
+    var index = 0;
+
     for(var x = 0; x < arr.length; x++) {
-        newArr.push(arr[x]);
+
+        newArr[index] = arr[x];
+        index++;
+
     }
 
     for(var y = 0; y < arr2.length; y++) {
-        newArr.push(arr2[y]);
+        newArr[index] = arr2[y];
+        index++;
     }
     return newArr;
 
