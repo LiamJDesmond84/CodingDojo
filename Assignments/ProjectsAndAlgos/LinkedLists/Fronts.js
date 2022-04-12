@@ -25,6 +25,9 @@ class LinkedList {
         return this;
     }
 
+
+
+
     removeFront() {
         if(this.head != null) {
             // Value of this.head that we're going to remove
