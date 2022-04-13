@@ -65,16 +65,58 @@ class LinkedList {
 
                     return true;
                 }
-                else {
+
                     runner = runner.next;
-                }
+
                 
             }
-            while (!runner) {
+
                 return false;
+
+
+
+        }
+
+        // contains(value) {
+        //     var runner = this.head;
+        //     while(runner) {
+        //         if(runner.value === value) {
+        //             return true;
+        //         }
+        //         runner = runner.next;
+        //     }
+        //     return false;
+        // }
+
+        length() {
+            
+            let runner = this.head;
+            let count = 0;
+
+            while(runner) {
+                count++;
+                runner = runner.next;
+            }
+            return count;
+        }
+
+        display() {
+
+            var list = "";
+
+            if(!this.head) {
+                return "";
             }
 
+            list += this.head.data;
 
+            let runner = this.head.next;
+            
+            while(runner) {
+                list += " " + runner.data;
+                runner = runner.next;
+            }
+            return list;
         }
 }
 
@@ -83,32 +125,30 @@ var myNode = new Node(10);
 var myNode2 = new Node(8);
 var myNode3 = new Node(5);
 var myNode4 = new Node(1);
+var myNode5 = new Node(7);
 
-myLinkedList.addFront(3);
+// myLinkedList.addFront(3);
 myLinkedList.addFront(9);
-myLinkedList.addFront(6);
-myLinkedList.addFront(2);
+// myLinkedList.addFront(6);
+// myLinkedList.addFront(2);
 
 
 myLinkedList.head = myNode;
 myNode.next = myNode2;
 myNode2.next = myNode3;
 myNode3.next = myNode4;
+myNode4.next = myNode5;
 
 console.log(myLinkedList);
 console.log(myNode);
 console.log(myNode2);
 
-var test = myLinkedList.contains(10);
+var test = myLinkedList.contains(9);
 
 console.log(test);
 
+var test2 = myLinkedList.length();
 
-// while(runner.next.next != null) {
-//     if (next.data == value || runner.data == value || next.next.data == value) {
-//         return true;
-//     }
-//     else {
-//         return false;
-//     }
-// }
+console.log(test2);
+
+console.log(myLinkedList.display());
